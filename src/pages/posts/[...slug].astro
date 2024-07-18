@@ -19,13 +19,13 @@ type Props = CollectionEntry<'posts'>;
 const post = Astro.props;
 const { Content, remarkPluginFrontmatter } = await post.render();
 
-const category: CollectionEntry<'categories'> = (
+const category: CollectionEntry<'categories'> | undefined = (
     await getCollection('categories')
 )
     .filter((c) => c.slug === post.data.category)
     .pop();
 
-const tags = post.data.tags ?? [category.slug];
+const tags = post.data.tags ?? [category?.slug];
 const URL = Astro.url.href;
 const ogImage = post.data.ogImage;
 ---
@@ -80,7 +80,7 @@ const ogImage = post.data.ogImage;
                         <li class="inline-flex items-center">
                             <a
                                 class="flex items-center text-sm text-orange-400 hover:text-orange-500 focus:outline-none focus:text-orange-500"
-                                href=`/categories/${category.slug}`
+                                href=`/categories/${category?.slug}`
                             >
                                 {category?.data?.title}
                             </a>
@@ -140,7 +140,7 @@ const ogImage = post.data.ogImage;
                         class="flex flex-wrap gap-x-2 gap-y-1 sm:flex-nowrap sm:items-center sm:gap-y-0"
                     >
                         {
-                            tags.map((tag: string) => (
+                            tags.map((tag: any) => (
                                 <span class="inline-flex items-center gap-x-1.5 rounded-lg bg-neutral-400/30 px-3 py-1.5 text-xs font-medium text-neutral-700 outline-none focus:outline-none focus-visible:outline-none focus-visible:ring dark:bg-neutral-700/60 dark:text-neutral-300">
                                     {tag}
                                 </span>

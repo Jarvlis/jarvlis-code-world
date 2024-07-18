@@ -6,7 +6,6 @@ import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 import { SITE } from './src/config.ts';
 import { remarkReadingTime } from './src/support/plugins.ts';
-import { uploadAssetsToS3 } from './src/support/uploader.ts';
 
 export default defineConfig({
     site: SITE.url,
@@ -29,7 +28,6 @@ export default defineConfig({
             SVG: true,
             Logger: 2,
         }),
-        uploadAssetsToS3(),
     ],
     markdown: {
         remarkPlugins: [remarkReadingTime],
