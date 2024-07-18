@@ -47,6 +47,5 @@ export default defineConfig({
     output: 'static',
     build: {
         assets: 'assets',
-        assetsPrefix: 'https://images.godruoyi.com/gblog',
     },
 });
