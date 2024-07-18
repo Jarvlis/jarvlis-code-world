@@ -1,13 +1,12 @@
 ---
-title: "Lambda Connect RDS"
-description: "我们的目的是把 RDS 和 Lambda 放在同一个VPC 下，并且要支持 Lambda 访问 RDS，Lambda 可以访问 SecretManager，Lambda 可以访问 DynamoDB" 
-pubDate: "2024-05-21 17:47:00"
-category: "tool"
-banner: "@images/posts/lambda-rds/banner-1.jpg"
-ogImage: "@images/posts/lambda-rds/banner-1.jpg"
-tags: ["AWS", "Lambda", "RDS"]
+title: 'Lambda Connect RDS'
+description: '我们的目的是把 RDS 和 Lambda 放在同一个VPC 下，并且要支持 Lambda 访问 RDS，Lambda 可以访问 SecretManager，Lambda 可以访问 DynamoDB'
+pubDate: '2024-05-21 17:47:00'
+category: 'tool'
+banner: '@images/posts/lambda-rds/banner-1.jpg'
+ogImage: '@images/posts/lambda-rds/banner-1.jpg'
+tags: ['AWS', 'Lambda', 'RDS']
 ---
-
 
 这份文章解释了如何通过 Lambda 连接 AWS RDS 数据库以及 SecretManager 和 DynamoDB。
 
@@ -64,8 +63,8 @@ tags: ["AWS", "Lambda", "RDS"]
 它代表部署在这个子网中的服务，访问目标地址时的流量流出规则。假设我们将一个 EC2 实例部署到了这个子网：
 
 1. 当在 EC2 中 Ping `192.168.x.x` 时，EC2 会将请求转发到所在子网的路由表，路由表会匹配上面的第二条规则，将流量转发到 Local，Local 会在整个 VPC 范围下广播，最终实现局域网内的通信。
-2. 当在 EC2 中访问如 GitHub 等公网服务时，由于 GitHub 的 IP 地址只满足上述的第一条规则，所以在 EC2 中访问 GitHub 会将流量转发到 `igw` 网关。 
-    
+2. 当在 EC2 中访问如 GitHub 等公网服务时，由于 GitHub 的 IP 地址只满足上述的第一条规则，所以在 EC2 中访问 GitHub 会将流量转发到 `igw` 网关。
+
 这里的 `igw-123456789` 是一个网关，它的全名叫 `Internet Gateway` 。
 
 > 如果你的服务只需要在局域网中通信，即不需要访问外网，也不需要外网访问它们；你可以删除上面的 0.0.0.0 这条规则。
@@ -109,8 +108,8 @@ NAT，全称为 Network Address Translation，即网络地址转换。它的主�
 
 NAT 与 IGW 的区别：
 
-- NAT 是单向的，流量只能从 NAT → 外部网络，外部网络无法访问 NAT 里面的资源。所以如果一些服务只需要访问外网但不允许外网访问内部网络，就可以使用 NAT。
-- IGW 是双工的，可以从 IGW → 外部网络，也可以从外部网络到 → NAT。比如 WEB 服务器，即需要服务器能返回 Response 给用户，也需要用户能直接请求服务器上的资源。
+-   NAT 是单向的，流量只能从 NAT → 外部网络，外部网络无法访问 NAT 里面的资源。所以如果一些服务只需要访问外网但不允许外网访问内部网络，就可以使用 NAT。
+-   IGW 是双工的，可以从 IGW → 外部网络，也可以从外部网络到 → NAT。比如 WEB 服务器，即需要服务器能返回 Response 给用户，也需要用户能直接请求服务器上的资源。
 
 有了 NAT 后，我们的网络拓扑图如下。
 
@@ -118,7 +117,7 @@ NAT 与 IGW 的区别：
 VPC
   - sunnet1(lambda) -> route table1  -> 0.0.0.0/0       -> nat
                                      -> 192.168.0.0/16  -> local
-                           
+
   - subnet2(rds)    -> route table2  -> 0.0.0.0/0       -> igw
                                      -> 192.168.0.0/16  -> local
 ```
@@ -134,8 +133,8 @@ VPC
                            ^         -> 192.168.0.0/16  -> local
                            |
   - subnet2(rds)    -------/
-    
-                                     
+
+
   - subnet3(igw)    -> route table2  -> 0.0.0.0/0       -> igw
                                      -> 192.168.0.0/16  -> local
 ```
@@ -218,31 +217,31 @@ Lambda 默认情况下并不会部署到 VPC 中，我们需要修改 Lambda 的
 以 CreateNoteCommandLambda 为例，其配置为：
 
 ```yaml
-  CreateNoteCommandLambda:
+CreateNoteCommandLambda:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: CreateNoteCommandLambda
-      CodeUri: course_deploy.jar
-      Handler: com.x.CourseServiceHandler::handleRequest
-      Policies:
-        # 指定 VPC 策略
-        - VPCAccessPolicy: {}
-      # VPC 配置
-      VpcConfig:
-        SecurityGroupIds:
-          - sg-12345
-        SubnetIds:
-          - subnet-12345 # kmind-private1-nat-east-1a
-          - subnet-23456 # kmind-private1-nat-east-1b
-      Events:
-        ApiEvents:
-          Type: Api
-          Properties:
-            RestApiId: !Ref ApiGatewayApi
-            Path: /notes
-            Method: POST
-            Auth:
-              Authorizer: NONE
+        FunctionName: CreateNoteCommandLambda
+        CodeUri: course_deploy.jar
+        Handler: com.x.CourseServiceHandler::handleRequest
+        Policies:
+            # 指定 VPC 策略
+            - VPCAccessPolicy: {}
+        # VPC 配置
+        VpcConfig:
+            SecurityGroupIds:
+                - sg-12345
+            SubnetIds:
+                - subnet-12345 # kmind-private1-nat-east-1a
+                - subnet-23456 # kmind-private1-nat-east-1b
+        Events:
+            ApiEvents:
+                Type: Api
+                Properties:
+                    RestApiId: !Ref ApiGatewayApi
+                    Path: /notes
+                    Method: POST
+                    Auth:
+                        Authorizer: NONE
 ```
 
 新增的配置为：
@@ -260,7 +259,7 @@ Lambda 默认情况下并不会部署到 VPC 中，我们需要修改 Lambda 的
 Security Group 是 AWS 的一种安全机制，用于控制进出的网络流量。你可以将 Security Group 想象成由规则组成的虚拟防火墙。我们的目的是想 Lambda 访问 RDS，所以我们需要配置 Lambda Security Group 的 **Outbound rules**，如：
 
 ```
-Security group ID     Protocol  Ports  Destination 
+Security group ID     Protocol  Ports  Destination
 sg-0467b06b178edb777  All       All    0.0.0.0/0
 ```
 
@@ -268,7 +267,7 @@ sg-0467b06b178edb777  All       All    0.0.0.0/0
 
 ```
 Security group ID      Protocol      Ports   Source
-sg-0467b06b178edb777   Custom TCP    5432    0.0.0.0/0 
+sg-0467b06b178edb777   Custom TCP    5432    0.0.0.0/0
 sg-0467b06b178edb777   AlL           All     sg-0467b06b178edb777
 ```
 

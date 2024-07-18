@@ -1,25 +1,26 @@
 ---
-title: "Bus Dispatcher & Event Dispatcher"
-description: "Laravel 提供的 Bus 总线组件主要为了解决什么问题？我们平时使用的 event、dispatch 等方法和他有什么关系？他和 Event 组件提供的 Dispatcher 有什么区别？"
-pubDate: "2020-11-04 05:17:23"
-category: "laravel"
-banner: "@images/banners/35TCzBa3CNP65B3TV3oEWIRQKhSeoj0SCicxmY2z.png"
-tags: ["laravel"]
+title: 'Bus Dispatcher & Event Dispatcher'
+description: 'Laravel 提供的 Bus 总线组件主要为了解决什么问题？我们平时使用的 event、dispatch 等方法和他有什么关系？他和 Event 组件提供的 Dispatcher 有什么区别？'
+pubDate: '2020-11-04 05:17:23'
+category: 'laravel'
+banner: '@images/banners/35TCzBa3CNP65B3TV3oEWIRQKhSeoj0SCicxmY2z.png'
+tags: ['laravel']
 oldViewCount: 2636
-oldKeywords: ["bus,even,dispatcher,dispatch,laravel"]
+oldKeywords: ['bus,even,dispatcher,dispatch,laravel']
 ---
 
 > Laravel 提供的 Bus 总线组件主要为了解决什么问题？我们平时使用的 event、dispatch 等方法和他有什么关系？他和 Event 组件提供的 Dispatcher 有什么区别？
 
 Bus 总线和 Event 的组件都提供了 Dispatcher 服务，但主要区别如下：
 
-* Bus 总线提供的 Dispatcher 可以 dispatch 任何 command
-* Event 组件提供的 Dispatcher 只能 dispatch 已经注册的 event
-* 都提供了 dispatch new 和 dispatch to queue 的支持
+-   Bus 总线提供的 Dispatcher 可以 dispatch 任何 command
+-   Event 组件提供的 Dispatcher 只能 dispatch 已经注册的 event
+-   都提供了 dispatch new 和 dispatch to queue 的支持
 
 > EventDispatcher dispatch 的 event 若事先未注册，则不会有任何反应。
 
 ## Bus Dispatcher
+
 完整应用了 [管道流的原理](https://godruoyi.com/posts/laravel-pipeline-flow-principle)，可以将任意的 command 对象通过该总线发射出去。
 
 ```php
@@ -44,7 +45,7 @@ class User
 ```
 
 > 如果上面的 command 实现自 ShouldQueue，那么发送邮件这一步操作将会放到队列中去执行。
-> 
+>
 > ⏰ 此处的 handle 方法参数可自动注入你想要的任何对象。
 
 通常我们不会将「处理器」和 command 放在同一个类中，可以通过下面的方式指定单独的处理类（发送邮件）。
@@ -75,7 +76,7 @@ app('Illuminate\Contracts\Bus\Dispatcher')->pipeThrough([
 ])->dispatchNow($user, new \App\SendReadpackHandler);
 ```
 
-Laravel 还为我们提供了一个叫做 PendingDispatch 的类，用来「延迟」具体的 dispatch 操作。其原理和 Bus Dispatcher 一样，只是利用 PHP 的 __destruct 当对象引用被销毁或程序退出时再执行真正的 dispatch 操作。
+Laravel 还为我们提供了一个叫做 PendingDispatch 的类，用来「延迟」具体的 dispatch 操作。其原理和 Bus Dispatcher 一样，只是利用 PHP 的 \_\_destruct 当对象引用被销毁或程序退出时再执行真正的 dispatch 操作。
 
 ```php
 public function __destruct()
@@ -99,6 +100,7 @@ Ok, received
 ```
 
 ## Event Dispatcher
+
 Event 组件提供的 dispatch 只能转发已经注册到事件服务上的 event，如下所示：
 
 ```php

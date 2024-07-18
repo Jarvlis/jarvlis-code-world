@@ -1,17 +1,18 @@
 ---
-title: "2023 年终总结"
-description: "我记得某位推友说过，如果你只是一味的吸取别人的知识，那就算你是在逛 Hacker News，读专业论文，看世界名著，甚至是在读 Linux 源码；那你本质上和那些只知道刷抖音的人来说并没有什么不同"
-pubDate: "2024-02-09 15:10:51"
-category: "life"
-banner: "@images/banners/23zdmLzhMv4Y6HhpqSTmupMhL6CFQjIEewpAAuYL.jpeg"
-banner2: "@images/banners/review-2023.png"
-tags: ["life"]
+title: '2023 年终总结'
+description: '我记得某位推友说过，如果你只是一味的吸取别人的知识，那就算你是在逛 Hacker News，读专业论文，看世界名著，甚至是在读 Linux 源码；那你本质上和那些只知道刷抖音的人来说并没有什么不同'
+pubDate: '2024-02-09 15:10:51'
+category: 'life'
+banner: '@images/banners/23zdmLzhMv4Y6HhpqSTmupMhL6CFQjIEewpAAuYL.jpeg'
+banner2: '@images/banners/review-2023.png'
+tags: ['life']
 oldViewCount: 754
 selected: true
-oldKeywords: ["2023"]
+oldKeywords: ['2023']
 ---
 
-# 
+#
+
 我在楼上写今年的总结，窗外在下雪。
 
 ## Life
@@ -42,11 +43,11 @@ oldKeywords: ["2023"]
 
 我一直觉得机会是留给行动起来的人的，站在岸上学不会游泳。我并不是一个行动派，就拿每次推着孩子出去因为路口被私家车挡着的事儿来说，我每次都是嘴上骂两句，即使心里想过很多遍市长信箱投诉，交通执法大队举报，却每次都没有实际行动起来。我希望来年我能行动起来，如果某一个市政的改善有你的功劳，那未尝不是一件有趣的事儿呢。
 
-
 就写到这吧，春晚太吵了。
 
 ## 往年总结
-- [2022 年终总结](https://godruoyi.com/posts/review-of-2022)
-- [2021 年终总结](https://godruoyi.com/posts/review-2021)
-- [2020 年终总结](https://godruoyi.com/posts/2020-year-end-review)
-- [2019 年度总结](https://godruoyi.com/posts/continue-refueling-in-2019)
+
+-   [2022 年终总结](https://godruoyi.com/posts/review-of-2022)
+-   [2021 年终总结](https://godruoyi.com/posts/review-2021)
+-   [2020 年终总结](https://godruoyi.com/posts/2020-year-end-review)
+-   [2019 年度总结](https://godruoyi.com/posts/continue-refueling-in-2019)

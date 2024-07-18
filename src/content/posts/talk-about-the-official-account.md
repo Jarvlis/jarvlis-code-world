@@ -1,12 +1,12 @@
 ---
-title: "说一说公众号"
-description: "我不相信我错过的东西真的就那么有价值，我也不相信真的能用碎片时间从工号上学到什么新知识"
-pubDate: "2021-08-19 05:37:06"
-category: "life"
-banner: "@images/banners/m2FL2F5rf7fTPCr35lvB4sDhjNH5wBNWx7fBXPzw.jpeg"
-tags: ["life"]
+title: '说一说公众号'
+description: '我不相信我错过的东西真的就那么有价值，我也不相信真的能用碎片时间从工号上学到什么新知识'
+pubDate: '2021-08-19 05:37:06'
+category: 'life'
+banner: '@images/banners/m2FL2F5rf7fTPCr35lvB4sDhjNH5wBNWx7fBXPzw.jpeg'
+tags: ['life']
 oldViewCount: 3355
-oldKeywords: ["go,公众号,博客"]
+oldKeywords: ['go,公众号,博客']
 ---
 
 很久就想写一篇公众号相关的感想了，刚好在推特上刷到了[这条时间线](https://twitter.com/yihong0618/status/1428176270446059524)，我就来简单写写；如果因此得罪了大佬们，请勿怪罪。因为我只是想谈谈写作这件事。

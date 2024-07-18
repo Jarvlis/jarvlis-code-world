@@ -1,12 +1,12 @@
 ---
-title: "文城"
-description: "人生就是自己的往事和他人的序章，时代的洪流推着每个人做出各自的选择。这是一个荒蛮的年代，结束的尚未结束，开始的尚未开始。"
-pubDate: "2021-09-23 05:50:30"
-category: "books"
-banner: "@images/banners/LTon13CrqxnO2m0WD3Npe6CAc8kwbBr1gUPfqaMz.jpeg"
-tags: ["books"]
+title: '文城'
+description: '人生就是自己的往事和他人的序章，时代的洪流推着每个人做出各自的选择。这是一个荒蛮的年代，结束的尚未结束，开始的尚未开始。'
+pubDate: '2021-09-23 05:50:30'
+category: 'books'
+banner: '@images/banners/LTon13CrqxnO2m0WD3Npe6CAc8kwbBr1gUPfqaMz.jpeg'
+tags: ['books']
 oldViewCount: 3895
-oldKeywords: ["文城,余华,wencheng,林祥福,小美"]
+oldKeywords: ['文城,余华,wencheng,林祥福,小美']
 ---
 
 最近比较颓，晚上地下城游戏疲劳用完后，我躺在沙发上看起了仅剩一点的文城。
@@ -19,5 +19,5 @@ oldKeywords: ["文城,余华,wencheng,林祥福,小美"]
 
 推荐你收听下面两期播客：
 
-* [播客：余华×梁文道，当代作家的责任是什么？ - 小宇宙](https://www.xiaoyuzhoufm.com/episode/60dc5cdce13dd0c6808ab6e6)
-* [播客：余华《文城》，苦字有几种写法？- 小宇宙](https://www.xiaoyuzhoufm.com/episode/6059250654fee091656154f2?s=eyJ1IjoiNWU4ODE2NWJlMDM2YzQzMTc5NTIyN2Y5In0%3D%0A)
+-   [播客：余华×梁文道，当代作家的责任是什么？ - 小宇宙](https://www.xiaoyuzhoufm.com/episode/60dc5cdce13dd0c6808ab6e6)
+-   [播客：余华《文城》，苦字有几种写法？- 小宇宙](https://www.xiaoyuzhoufm.com/episode/6059250654fee091656154f2?s=eyJ1IjoiNWU4ODE2NWJlMDM2YzQzMTc5NTIyN2Y5In0%3D%0A)

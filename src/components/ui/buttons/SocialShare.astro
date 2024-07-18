@@ -1,18 +1,18 @@
 ---
-import Icon from '@components/ui/icons/icon.astro'
+import Icon from '@components/ui/icons/icon.astro';
 
-const { pageTitle, title = 'Share' } = Astro.props
+const { pageTitle, title = 'Share' } = Astro.props;
 
 interface Props {
-    pageTitle: string
-    title?: string
+    pageTitle: string;
+    title?: string;
 }
 
 type SocialPlatform = {
-    name: string
-    url: string
-    svg: string
-}
+    name: string;
+    url: string;
+    svg: string;
+};
 
 const socialPlatforms: SocialPlatform[] = [
     {
@@ -33,7 +33,9 @@ const socialPlatforms: SocialPlatform[] = [
 ];
 ---
 
-<div class="hs-dropdown relative inline-flex [--auto-close:inside] [--placement:top-left]">
+<div
+    class="hs-dropdown relative inline-flex [--auto-close:inside] [--placement:top-left]"
+>
     <button
         id="hs-dropup"
         type="button"
@@ -50,7 +52,7 @@ const socialPlatforms: SocialPlatform[] = [
     >
         <div class="py-2 first:pt-0 last:pb-0">
             {
-                socialPlatforms.map(platform => (
+                socialPlatforms.map((platform) => (
                     <a
                         class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100  focus:outline-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 "
                         href={platform.url}
@@ -111,40 +113,44 @@ const socialPlatforms: SocialPlatform[] = [
 <!--<script is:inline src="/scripts/vendor/clipboard.min.js"></script>-->
 
 <script is:inline>
-(function () {
-    window.addEventListener('load', () => {
-        const $clipboards = document.querySelectorAll('.js-clipboard')
-        $clipboards.forEach((el) => {
-            const clipboard = new ClipboardJS(el, {
-                text: () => {
-                    return window.location.href
-                },
-            })
-            clipboard.on('success', () => {
-                const $default = el.querySelector('.js-clipboard-default')
-                const $success = el.querySelector('.js-clipboard-success')
-                const $successText = el.querySelector('.js-clipboard-success-text')
-                const successText = el.dataset.clipboardSuccessText || ''
-                let oldSuccessText
+    (function () {
+        window.addEventListener('load', () => {
+            const $clipboards = document.querySelectorAll('.js-clipboard');
+            $clipboards.forEach((el) => {
+                const clipboard = new ClipboardJS(el, {
+                    text: () => {
+                        return window.location.href;
+                    },
+                });
+                clipboard.on('success', () => {
+                    const $default = el.querySelector('.js-clipboard-default');
+                    const $success = el.querySelector('.js-clipboard-success');
+                    const $successText = el.querySelector(
+                        '.js-clipboard-success-text',
+                    );
+                    const successText = el.dataset.clipboardSuccessText || '';
+                    let oldSuccessText;
 
-                if ($successText) {
-                    oldSuccessText = $successText.textContent
-                    $successText.textContent = successText
-                }
-                if ($default && $success) {
-                    $default.style.display = 'none'
-                    $success.style.display = 'block'
-                }
-
-                setTimeout(() => {
-                    if ($successText && oldSuccessText) { $successText.textContent = oldSuccessText }
-                    if ($default && $success) {
-                        $success.style.display = ''
-                        $default.style.display = ''
+                    if ($successText) {
+                        oldSuccessText = $successText.textContent;
+                        $successText.textContent = successText;
                     }
-                }, 800)
-            })
-        })
-    })
-})()
+                    if ($default && $success) {
+                        $default.style.display = 'none';
+                        $success.style.display = 'block';
+                    }
+
+                    setTimeout(() => {
+                        if ($successText && oldSuccessText) {
+                            $successText.textContent = oldSuccessText;
+                        }
+                        if ($default && $success) {
+                            $success.style.display = '';
+                            $default.style.display = '';
+                        }
+                    }, 800);
+                });
+            });
+        });
+    })();
 </script>

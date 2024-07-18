@@ -1,22 +1,22 @@
 ---
-title: "Go 语言限流器的实现"
-description: "今天在看 GitHub 趋势榜的时候看到一个小巧的 go 框架 chi，看了下他限流器中间件的实现，觉得还挺有趣的"
-pubDate: "2021-01-15 09:41:08"
-category: "golang"
-banner: "@images/banners/yWQr5M7GVezjkDoj9tmJqBEwnATIUdmAxa4TRA1y.jpeg"
-tags: ["golang"]
+title: 'Go 语言限流器的实现'
+description: '今天在看 GitHub 趋势榜的时候看到一个小巧的 go 框架 chi，看了下他限流器中间件的实现，觉得还挺有趣的'
+pubDate: '2021-01-15 09:41:08'
+category: 'golang'
+banner: '@images/banners/yWQr5M7GVezjkDoj9tmJqBEwnATIUdmAxa4TRA1y.jpeg'
+tags: ['golang']
 oldViewCount: 2932
-oldKeywords: ["go throttle,go限流器,Go语言限流器的实现"]
+oldKeywords: ['go throttle,go限流器,Go语言限流器的实现']
 ---
 
 今天在看 GitHub 趋势榜的时候看到一个小巧的 go 框架 [chi](https://github.com/go-chi/chi)，看了下他限流器中间件的实现，觉得还挺有趣的。
 
 我们知道 Laravel 的 Throttle 中间件是用计数器实现的，每次请求计数器 +1，可以大概限制每一分钟允许多少个请求。所以在看源码前我就在想：
 
-* 这个限流器是不是也用的计数器实现的？
-* 他是怎么解决某一时间区间内实际请求数大于限制条件这一问题的？
+-   这个限流器是不是也用的计数器实现的？
+-   他是怎么解决某一时间区间内实际请求数大于限制条件这一问题的？
 
-> 然而看完后才醒悟，golang 中直接使用 channel 来实现即简单又可靠。 
+> 然而看完后才醒悟，golang 中直接使用 channel 来实现即简单又可靠。
 
 程序启动的时候，向一个带缓冲的 chan 发送一个空结构体 `struct{}{}`，简化版如下：
 

@@ -1,12 +1,12 @@
 ---
-title: "阿宝的感悟"
-description: "阿宝一觉睡醒后的感悟，她就是这么可爱（配图为最近最喜欢的电影，这也是阿宝老了的样子，肯定的）。"
-pubDate: "2020-08-06 06:58:46"
-category: "life"
-banner: "@images/banners/_1596697060_XDCk3rqeat.jpeg"
-tags: ["life"]
+title: '阿宝的感悟'
+description: '阿宝一觉睡醒后的感悟，她就是这么可爱（配图为最近最喜欢的电影，这也是阿宝老了的样子，肯定的）。'
+pubDate: '2020-08-06 06:58:46'
+category: 'life'
+banner: '@images/banners/_1596697060_XDCk3rqeat.jpeg'
+tags: ['life']
 oldViewCount: 2071
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 阿宝一觉睡醒后的感悟，她就是这么可爱（配图为最近最喜欢的电影，这也是阿宝老了的样子，肯定的）。

@@ -1,26 +1,25 @@
 ---
-title: "Go 语言中的 init 函数（译）"
-description: "有时候，在创建 golang 应用程序的时候，我们经常需要在程序初始化的时候执行某些操作。如初始化数据库的连接、载入本地配置文件等。"
-pubDate: "2020-10-30 09:42:11"
-category: "golang"
-banner: "@images/banners/gsjg5h5pRyfRBreK7ED4eO8lls2AlWq9V2oEdBKx.png"
-tags: ["golang"]
+title: 'Go 语言中的 init 函数（译）'
+description: '有时候，在创建 golang 应用程序的时候，我们经常需要在程序初始化的时候执行某些操作。如初始化数据库的连接、载入本地配置文件等。'
+pubDate: '2020-10-30 09:42:11'
+category: 'golang'
+banner: '@images/banners/gsjg5h5pRyfRBreK7ED4eO8lls2AlWq9V2oEdBKx.png'
+tags: ['golang']
 oldViewCount: 2955
-oldKeywords: ["go初始化,init函数,初始化,go,init"]
+oldKeywords: ['go初始化,init函数,初始化,go,init']
 ---
 
 > 本文译自 [The Go init Function](https://tutorialedge.net/golang/the-go-init-function/)
-> 
 
 有时候，在创建 golang 应用程序的时候，我们经常需要在程序初始化的时候执行某些操作。如初始化数据库的连接、载入本地配置文件等。
 
-而在 Go 语言中，这些操作都是通过  `init()` 函数来完成的。在本篇教程中，我们将探讨如何更优雅（fame and glory）的使用 `init()` 函数，或许能帮助你构建你的下一个 go 项目。
+而在 Go 语言中，这些操作都是通过 `init()` 函数来完成的。在本篇教程中，我们将探讨如何更优雅（fame and glory）的使用 `init()` 函数，或许能帮助你构建你的下一个 go 项目。
 
 ## Go 中的初始化函数
 
 在 Go 语言中，`init()` 函数的功能非常强大，并且比其他语言更容易使用。`init()` 函数可以在 package 的 block 中使用，并且无论该包被导入多少次，`init()` 函数将始终仅被调用一次。
 
-现在，请看下面的列子，`init`  函数定义的内容只被执行了一次。这种特性能使用我们有效的建立数据库连接、注册各种各样的服务，或执行您只想执行一次的其他任务。
+现在，请看下面的列子，`init` 函数定义的内容只被执行了一次。这种特性能使用我们有效的建立数据库连接、注册各种各样的服务，或执行您只想执行一次的其他任务。
 
 ```go
 package main
@@ -72,11 +71,12 @@ Name: Elliot
 ```
 
 ## Multiple Packages
+
 让我们来看看一个更复杂的场景，它更接近于生产环境。想象一下，我们的应用程序中有 3 个不同的 Go 包，分别是 main、broker、database。
 
 在每一个包中，我们都可以指定一个 init() 函数，比如用于设置 Kafka 或 MySQL 的连接池。当我们调用 database 包中的函数时，它将自动调用 init 函数并初始化连接池。
 
-> 🐜：你不能依赖多个 init() 函数的执行顺序。与其如此，还不如把精力花费在其他逻辑的编写上。  
+> 🐜：你不能依赖多个 init() 函数的执行顺序。与其如此，还不如把精力花费在其他逻辑的编写上。
 
 ## Init 的初始化顺序
 
@@ -85,7 +85,7 @@ Name: Elliot
 当涉及到初始化顺序时，需要考虑一些事项。 Go 通常按照声明的顺序进行初始化，但如果声明的变量依赖另外包中的变量或方法，那将
 但是会在它们可能依赖的任何变量之后显式初始化。 这意味着，假设您在同一软件包中有两个文件 a.go 和 b.go，若 a.go 中任何内容的初始化都取决于 b.go 中的内容，则 a.go 将首先被初始化。
 
-> 🐜：可以在官方文档中找到有关Go中初始化顺序的更深入概述：[The Go Programming Language Specification - The Go Programming Language](https://golang.org/ref/spec#Package_initialization)  
+> 🐜：可以在官方文档中找到有关Go中初始化顺序的更深入概述：[The Go Programming Language Specification - The Go Programming Language](https://golang.org/ref/spec#Package_initialization)
 
 来看下面的列子：
 
@@ -116,7 +116,7 @@ func main() {
 
 这些 init() 函数按声明顺序依次调用。
 
-> 目前同一个 go 文件中是支持多个 init 函数的，不止 2 个。  
+> 目前同一个 go 文件中是支持多个 init 函数的，不止 2 个。
 
 ```go
 package main

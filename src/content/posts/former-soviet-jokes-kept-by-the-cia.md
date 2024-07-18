@@ -1,16 +1,15 @@
 ---
-title: "美国中情局保藏的前苏联段子"
-description: "今天给大家讲个美国中情局保藏的前苏联段子"
-pubDate: "2020-09-29 10:26:48"
-category: "life"
-banner: "@images/banners/lDFsFiZo6fCKuKtoqiWzCjPPT7LeXG2A5cW5PcoY.jpeg"
-tags: ["life"]
+title: '美国中情局保藏的前苏联段子'
+description: '今天给大家讲个美国中情局保藏的前苏联段子'
+pubDate: '2020-09-29 10:26:48'
+category: 'life'
+banner: '@images/banners/lDFsFiZo6fCKuKtoqiWzCjPPT7LeXG2A5cW5PcoY.jpeg'
+tags: ['life']
 oldViewCount: 2773
-oldKeywords: ["段子,苏联,嘲讽,共产主义,科学,恐怖,兔子,言论自由"]
+oldKeywords: ['段子,苏联,嘲讽,共产主义,科学,恐怖,兔子,言论自由']
 ---
 
 > 今天给大家讲个美国中情局保藏的前苏联段子。
-> 
 
 ## 恐怖的兔子
 
@@ -46,5 +45,5 @@ oldKeywords: ["段子,苏联,嘲讽,共产主义,科学,恐怖,兔子,言论自�
 
 ## 知识的源头
 
-* [https://twitter.com/haoel/status/1310831913813176320](https://twitter.com/haoel/status/1310831913813176320)
-* [https://www.bbc.com/zhongwen/simp/world-45652110](https://www.bbc.com/zhongwen/simp/world-45652110)
+-   [https://twitter.com/haoel/status/1310831913813176320](https://twitter.com/haoel/status/1310831913813176320)
+-   [https://www.bbc.com/zhongwen/simp/world-45652110](https://www.bbc.com/zhongwen/simp/world-45652110)

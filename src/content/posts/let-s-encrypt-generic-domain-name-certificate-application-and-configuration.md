@@ -1,21 +1,21 @@
 ---
 title: "Let's Encrypt 泛域名证书申请及配置"
 description: "Let's Encrypt 在今年 3 月份就已经推出泛域名证书支持了，以前我一直是使用的单域名证书，加上站点开启了 `HSTS` 支持，当新增网站应用时不得不为其单独申请证书，十分不便。  目前比较常用的为 `Let's Encrypt..."
-pubDate: "2018-06-21 15:26:19"
-category: "nginx"
-banner: "@images/banners/_1553621543_3ivCUwq5C7.jpg"
-tags: ["nginx"]
+pubDate: '2018-06-21 15:26:19'
+category: 'nginx'
+banner: '@images/banners/_1553621543_3ivCUwq5C7.jpg'
+tags: ['nginx']
 oldViewCount: 4189
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > Let's Encrypt 在今年 `3` 月份就已经推出泛域名证书支持了，以前我一直是使用的单域名证书，加上站点开启了 `HSTS` 支持，当新增网站应用时不得不为其单独申请证书，十分不便。
 
 目前比较常用的为 `Let's Encrypt` 生成证书的工具比较多，如
 
-* [acme-tiny](https://github.com/diafygi/acme-tiny)
-* [certbot](https://github.com/certbot/certbot)
-* [acme.sh](https://github.com/Neilpang/acme.sh)
+-   [acme-tiny](https://github.com/diafygi/acme-tiny)
+-   [certbot](https://github.com/certbot/certbot)
+-   [acme.sh](https://github.com/Neilpang/acme.sh)
 
 这里我们将使用 [acme.sh](https://github.com/Neilpang/acme.sh) 这个工具来安装 `Let's Encrypt` 证书。`acme.sh` 是一个非常优秀的证书生成工具，其 [官网](https://github.com/Neilpang/acme.sh) 更是有详细的中文文档支持 。
 
@@ -87,7 +87,7 @@ export Ali_Secret="jlsdflanljkljlfdsaklkjflsa"
 
 证书生成成功后，默认保存在 `.acme.sh/你的顶级域名` 中。
 
-PS：如果你卡在  Getting domain auth token for each domain 这一步不动了，别担心，升级下你的 acme.sh 就好了。
+PS：如果你卡在 Getting domain auth token for each domain 这一步不动了，别担心，升级下你的 acme.sh 就好了。
 
 ```bash
 .acme.sh/acme.sh --upgrade
@@ -206,7 +206,7 @@ server {
 server {
     # 如果多个域名配置在同一主机，这里只需要监听到 433 就可以了，
     # 不需要再添加 ssl http2 fastopen=3 reuseport default_server 之类的了
-    listen 443;      
+    listen 443;
     listen [::]:443;
 
     root /home/godruoyi/websites/admin.godruoyi.com/public-admin;
@@ -244,7 +244,8 @@ sudo service nginx restart
 
 以上所有配置你都可以在 [这里](https://github.com/godruoyi/gblog/blob/master/resources/nginx/) 找到。
 
------------
+---
+
 参考链接
 
-* [腾讯云DNSPod API申请Let’s Encrypt泛域名证书](https://cloud.tencent.com/developer/article/1064471)
+-   [腾讯云DNSPod API申请Let’s Encrypt泛域名证书](https://cloud.tencent.com/developer/article/1064471)

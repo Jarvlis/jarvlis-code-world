@@ -1,17 +1,18 @@
 ---
-title: "峨眉⼭的⽇出"
-description: "上个周末，和⽼婆及阿婷们⼀起去峨眉⼭看⽇出。虽然结局很悲惨，过程也悲惨，却并⾮那么不如⼈意，写下来权当是安慰我们的这次旅⾏吧。"
-pubDate: "2019-05-22 12:03:18"
-category: "books"
-banner: "@images/banners/_1558526592_DaadbXpCjI.jpg"
-tags: ["books"]
+title: '峨眉⼭的⽇出'
+description: '上个周末，和⽼婆及阿婷们⼀起去峨眉⼭看⽇出。虽然结局很悲惨，过程也悲惨，却并⾮那么不如⼈意，写下来权当是安慰我们的这次旅⾏吧。'
+pubDate: '2019-05-22 12:03:18'
+category: 'books'
+banner: '@images/banners/_1558526592_DaadbXpCjI.jpg'
+tags: ['books']
 oldViewCount: 2396
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 上个周末，和⽼婆及阿婷们⼀起去峨眉⼭看⽇出。虽然结局很悲惨，过程也悲惨，却并⾮那么不如⼈意，写下来权当是安慰我们的这次旅⾏吧。
 
 ## 出发
+
 周末两天峨眉⼭的天⽓其实不那么好，持续着今年的阴⾬⻤鬼天⽓。但不知道什么原因驱使着我们，还义⽆反顾的选择沐浴。我猜不可能是爱，可能是积压了好久的⾏程需要释放吧。
 
 ![file](https://images.godruoyi.com/posts/201905/22/_1558524742_ZVQ4p39w6K.jpeg)

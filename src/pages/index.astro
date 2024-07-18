@@ -1,24 +1,24 @@
 ---
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import BlogInsight from "@components/blog/BlogInsight.astro";
-import blogHeroImg from "@images/hero-landing.png";
-import HeroSection from "@components/ui/sections/HeroSection.astro";
-import FeaturesSection from "@components/ui/sections/FeaturesSection.astro";
-import HeroSectionAlt from "@components/ui/sections/HeroSectionAlt.astro";
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import BlogInsight from '@components/blog/BlogInsight.astro';
+import blogHeroImg from '@images/hero-landing.png';
+import HeroSection from '@components/ui/sections/HeroSection.astro';
+import FeaturesSection from '@components/ui/sections/FeaturesSection.astro';
+import HeroSectionAlt from '@components/ui/sections/HeroSectionAlt.astro';
 
-const posts: CollectionEntry<"posts">[] = (await getCollection("posts"))
+const posts: CollectionEntry<'posts'>[] = (await getCollection('posts'))
     .sort(
-        (a: CollectionEntry<"posts">, b: CollectionEntry<"posts">) =>
-            b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+        (a: CollectionEntry<'posts'>, b: CollectionEntry<'posts'>) =>
+            b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
     )
     .slice(0, 3);
 ---
 
 <BaseLayout>
     <HeroSection
-        title=`Hello, <span class="text-yellow-500 dark:text-yellow-400">Jarvlis</span>`
+        title=`Hello, <span class="text-yellow-500 dark:text-yellow-400">I'm Jarvlis</span>`
         subTitle="Hi, I'm Haihanbi, I enjoy the process of building something using any technology stack, welcome to my blog"
         primaryBtn="Explore Posts"
         primaryBtnURL="/posts"

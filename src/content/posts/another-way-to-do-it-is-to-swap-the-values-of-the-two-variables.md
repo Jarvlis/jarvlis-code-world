@@ -1,12 +1,12 @@
 ---
-title: "换一种方式，交换两个变量的值"
-description: "你知道如何不实用临时变量交换两个变量的值吗"
-pubDate: "2020-08-24 15:02:22"
-category: "php"
-banner: "@images/banners/_1598318282_jY8TmSXOFP.jpeg"
-tags: ["php"]
+title: '换一种方式，交换两个变量的值'
+description: '你知道如何不实用临时变量交换两个变量的值吗'
+pubDate: '2020-08-24 15:02:22'
+category: 'php'
+banner: '@images/banners/_1598318282_jY8TmSXOFP.jpeg'
+tags: ['php']
 oldViewCount: 2646
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 在日常编程中，我们经常涉及到交换两个变量的值，常见实现如下。
@@ -30,7 +30,6 @@ func main() {
 > 当然，你也可以使用 `a, b = b, a` 来快速交换两个变量的值。
 
 利用中间变量，**快速简单**又快速的实现了变量的交换。但今天发现一种高逼格的实现，虽然并没什么用，如下：
-
 
 ```go
 func inplaceSwap(*a, *b int) (*int, *int) {

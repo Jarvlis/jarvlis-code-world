@@ -1,13 +1,13 @@
 ---
-title: "为什么 Laravel 这么优秀"
-description: "Laravel 一直是我心中最优雅的后端框架，为了向更多的人解释为什么 Laravel 这么优雅？框架本身都做了什么操作？比起其他框架的优势在哪里等？我准备从一个后端最常用的 CURD 例子说起，一步一步阐述这过程中 Laravel 都是怎么完成的；以及~~大家~~(我)为什么喜欢用 Laravel。"
-pubDate: "2024-01-24 04:45:05"
-category: "laravel"
-banner: "@images/banners/cltrDj0NYYvdGRANg6gPkpafhUZkjLKQVn2Lofld.jpeg"
-tags: ["laravel"]
+title: '为什么 Laravel 这么优秀'
+description: 'Laravel 一直是我心中最优雅的后端框架，为了向更多的人解释为什么 Laravel 这么优雅？框架本身都做了什么操作？比起其他框架的优势在哪里等？我准备从一个后端最常用的 CURD 例子说起，一步一步阐述这过程中 Laravel 都是怎么完成的；以及~~大家~~(我)为什么喜欢用 Laravel。'
+pubDate: '2024-01-24 04:45:05'
+category: 'laravel'
+banner: '@images/banners/cltrDj0NYYvdGRANg6gPkpafhUZkjLKQVn2Lofld.jpeg'
+tags: ['laravel']
 oldViewCount: 13934
 selected: true
-oldKeywords: ["laravel,whylaravel,php,container"]
+oldKeywords: ['laravel,whylaravel,php,container']
 ---
 
 Laravel 一直是我心中最优雅的后端框架，为了向更多的人解释为什么 Laravel 这么优雅？框架本身都做了什么操作？比起其他框架的优势在哪里等？我准备从一个后端最常用的 CURD 例子说起，一步一步阐述这过程中 Laravel 都是怎么完成的；以及~~大家~~(我)为什么喜欢用 Laravel。
@@ -22,9 +22,9 @@ Laravel 的定位是一个全栈 WEB 框架，它提供了 WEB 开发的全套�
 
 Laravel 第一个优雅的设计就是给开发者暴露了一个 ALLINONE 的入口 ———`Artisan`。Artisan 是一个 SHELL 脚本，是通过命令行操作 Laravel 的唯一入口。所有和 Laravel 的交互包括操作队列，数据库迁移，生成模版文件等；你都可以通过这个脚本来完成，这也是官方推荐的最佳实践之一。如你可以通过：
 
-- `php artisan serv` 启动本地开发环境
-- `php artisan tinker` Local Playground
-- `php artisan migrate` 执行数据库迁移等
+-   `php artisan serv` 启动本地开发环境
+-   `php artisan tinker` Local Playground
+-   `php artisan migrate` 执行数据库迁移等
 
 ![file](https://images.godruoyi.com/posts/202401/24/0dY3oaCDbjASJyuOd1cQK0KmtollNexQcmNaQ5gB.png)
 
@@ -39,7 +39,7 @@ Laravel 第一个优雅的设计就是给开发者暴露了一个 ALLINONE 的�
 我们的第一步是根据 Laravel 提供的 Artisan 命令生成对应的 Model；在实际的开发中我们通常会提供额外的参数以便生成模型的时候一起生成额外的模版文件，如数据库迁移文件、测试文件、Controller 等等；我们还将用 `make:model` 为 Course 生成一个 CURD Controller，相关的几个 commit 我列在下面了，每个 Commit 我都尽量做到了最小：
 
 1. [artisan make:model Teacher -msf](https://github.com/godruoyi/laravel-best-practice/commit/ae21f0050899a11cdbaadb01eca8cd8ec255e54d)
-2. [artisan make:model Course -a --api --pest](https://github.com/godruoyi/laravel-best-practice/commit/7e79632d09c28f12d08f0d46d5032c2969cdbb9b) 
+2. [artisan make:model Course -a --api --pest](https://github.com/godruoyi/laravel-best-practice/commit/7e79632d09c28f12d08f0d46d5032c2969cdbb9b)
 3. [definition database fields of courses table](https://github.com/godruoyi/laravel-best-practice/commit/0d03f1fab91596e771ed225db3f3ce4e79928c4a) & [definition model relation](https://github.com/godruoyi/laravel-best-practice/commit/6d10dd2df134ad5be659c23c4b11218e83c68341)
 4. [definition course seeder](https://github.com/godruoyi/laravel-best-practice/commit/54f676ce6470b3693d3c3b5cf8e9535e14eca109)
 
@@ -97,7 +97,7 @@ $course = Course::with('teacher', 'students')->find(1)
 // assert
 expect($course)
     ->id->toBe(1)
-    ->students->each->toBeInstanceOf(Student::class) 
+    ->students->each->toBeInstanceOf(Student::class)
     ->teacher->toBeInstanceOf(Teacher::class);
 ```
 
@@ -108,13 +108,13 @@ select * from "courses" where "id" = 1
 
 select * from "teachers" where "teachers"."id" in (5)
 
-select 
-    "students".*, 
-    "course_student"."course_id" as "pivot_course_id", 
-    "course_student"."student_id" as "pivot_student_id" 
-from "students" 
-inner join "course_student" 
-on "students"."id" = "course_student"."student_id" 
+select
+    "students".*,
+    "course_student"."course_id" as "pivot_course_id",
+    "course_student"."student_id" as "pivot_student_id"
+from "students"
+inner join "course_student"
+on "students"."id" = "course_student"."student_id"
 where "course_student"."course_id" in (1)
 ```
 
@@ -155,9 +155,9 @@ Laravel 会自动帮我们注册 5 条路由如下所示，包括用于新增操
 
 接下来我们来看在 Laravel 中是如何优雅的保存数据，这部分的记录你可以参考下面这几个 commit：
 
-- [feat: create course](https://github.com/godruoyi/laravel-best-practice/commit/fbff7fd71a6b9162b76f9547046468413bbaff4e)
-- [chore: switch to use pest](https://github.com/godruoyi/laravel-best-practice/commit/204589dede30ce1d7cf98195e06a52d4159c243a)
-- [add testing for create course endpoint](https://github.com/godruoyi/laravel-best-practice/commit/ef5c8f549f011d2b5333bee16ad3e6f082141085)
+-   [feat: create course](https://github.com/godruoyi/laravel-best-practice/commit/fbff7fd71a6b9162b76f9547046468413bbaff4e)
+-   [chore: switch to use pest](https://github.com/godruoyi/laravel-best-practice/commit/204589dede30ce1d7cf98195e06a52d4159c243a)
+-   [add testing for create course endpoint](https://github.com/godruoyi/laravel-best-practice/commit/ef5c8f549f011d2b5333bee16ad3e6f082141085)
 
 我们知道在进行数据操作前，都需要先对数据进行校验。而 Laravel 提供的 FormRequest 就可以非常方便的做到这一点；你可以在 FormRequest 中定义前端传入的每一个字段的验证规则。如是否必须，ID 是否应该在数据库中存在等：
 
@@ -199,7 +199,7 @@ $ echo -n '{"name": "hello", "teacher_id": 9999}' | http post http://127.0.0.1:8
 public function store(StoreCourseRequest $request)
 {
     $course = tap(
-        Course::create($request->validated()), 
+        Course::create($request->validated()),
         fn ($course) => $course->students()->sync($request->students)
     );
 
@@ -208,6 +208,7 @@ public function store(StoreCourseRequest $request)
 ```
 
 ## Storage Helper
+
 除了上面用到的 tap 辅助函数，Laravel 另一个优秀的地方是为我们提供了超级多的辅助函数；有操作数组的 Arr，操作字符串的 Str，操作集合的 Collection，操作时间的 Carbon 等。
 
 ```php
@@ -286,12 +287,14 @@ it('create course successfully with 1 students', function () {
 ![file](https://images.godruoyi.com/posts/202401/24/cifU9s56OI8P0crZseOdrssBDmX97fFIubNmdUyq.png)
 
 ## Update & Select & Delete
+
 接下来我们来看如何在 Laravel 中实现查询/删除/更新操作，这部分的记录你可以参考下面这几个 Commit：
-- [feat: create course and related testing](https://github.com/godruoyi/laravel-best-practice/commit/884eb7dd24d4fa32ac698698f431a037f566877f)
-- [feat: show course and testing](https://github.com/godruoyi/laravel-best-practice/commit/37c9d5fa7ab2fc731f3643c9348a462ead58d8e9)
-- [feat: update course and testing](https://github.com/godruoyi/laravel-best-practice/commit/1ab9331d6bb9377f956dfd9be104cb6c1a8b9df4)
-- [feat: delete course and testing](https://github.com/godruoyi/laravel-best-practice/commit/4ed0bc72ee965e9787b6ba001d6f14f2926e044e)
-- [feat: use laravel resources](https://github.com/godruoyi/laravel-best-practice/commit/c3f83395356d5d3e9f1c67f3b638acc10084ca99)
+
+-   [feat: create course and related testing](https://github.com/godruoyi/laravel-best-practice/commit/884eb7dd24d4fa32ac698698f431a037f566877f)
+-   [feat: show course and testing](https://github.com/godruoyi/laravel-best-practice/commit/37c9d5fa7ab2fc731f3643c9348a462ead58d8e9)
+-   [feat: update course and testing](https://github.com/godruoyi/laravel-best-practice/commit/1ab9331d6bb9377f956dfd9be104cb6c1a8b9df4)
+-   [feat: delete course and testing](https://github.com/godruoyi/laravel-best-practice/commit/4ed0bc72ee965e9787b6ba001d6f14f2926e044e)
+-   [feat: use laravel resources](https://github.com/godruoyi/laravel-best-practice/commit/c3f83395356d5d3e9f1c67f3b638acc10084ca99)
 
 ```php
 public function index(Request $request)
@@ -325,7 +328,9 @@ public function toArray(Request $request): array
     ];
 }
 ```
+
 ## Abstract API
+
 Laravel 另一个优雅的地方是给开发者提供了很多优秀的组件，如 Cache、Filesystem、Queue、View、Auth、Event、Notifaction 等。这些组件都用一个共通的设计：即开发者只需要面对一套高度抽象的 API 而不用关心具体的实现。举个例子，Laravel Cache Store 的部分 API 定义如下：
 
 ```php
@@ -341,12 +346,14 @@ interface Store
 ![file](https://images.godruoyi.com/posts/202401/24/iIBmKchNzfAfD69yj87DpC0PXZUrqvuVAY8bOsfH.png)
 
 ## Laravel Core - Container
+
 Laravel Container 是整个 Laravel 框架中最核心的部分，所有的一切都是建立在它之上的。
 
 我们知道容器只有两个功能：
+
 1. 装东西(bind)
 2. 从容器里取东西(get)
-所有用到容器的框架其本质都是在框架启动的时候疯狂的往容器里装东西，容器里面的东西越多，容器提供的功能越大。如 Java 的 Spring 会在编译时为 Sprint Container 填充不同的对象，在使用时就能向容器获取不同的值。Laravel Container 也类似；Laravel 还巧妙的提供了 Service Provider 的方式来往容器里装东西，它的定义如下：
+   所有用到容器的框架其本质都是在框架启动的时候疯狂的往容器里装东西，容器里面的东西越多，容器提供的功能越大。如 Java 的 Spring 会在编译时为 Sprint Container 填充不同的对象，在使用时就能向容器获取不同的值。Laravel Container 也类似；Laravel 还巧妙的提供了 Service Provider 的方式来往容器里装东西，它的定义如下：
 
 ```php
 interface ServiceProvider
@@ -404,7 +411,8 @@ class CourseController extends Controller
     }
 }
 ```
-## Laravel  Pipeline
+
+## Laravel Pipeline
 
 Laravel 另一个优秀的设计是 Pipeline ；Laravel 的 Pipeline 贯穿了整个框架的生命周期，可以说整个框架都是在一个流水线的管道里启动起来的。而 Laravel Pipeline 的实现也很有趣；我们知道在常见的 Pipeline 设计中，大多会通过 for 循环来实现，而 Laravel 则采用的是最简单却又最复杂的实现 `array_reduce`。
 
@@ -425,12 +433,12 @@ $pipelines = array_reduce([Middleware1, Middleware2, /* ... */], function ($stac
             } elseif (! is_object($pipe)) {
                 [$name, $parameters] = $this->parsePipeString($pipe);
                 $pipe = $this->getContainer()->make($name);
-        
+
                 $parameters = array_merge([$passable, $stack], $parameters);
             } else {
                 $parameters = [$passable, $stack];
             }
-        
+
             return $pipe(...$parameters);
         } catch (Throwable $e) {
             return $this->handleException($passable, $e);
@@ -441,7 +449,7 @@ $pipelines = array_reduce([Middleware1, Middleware2, /* ... */], function ($stac
 })
 
 // send request through middlewares and then get response
-$response = $pipelines($request); 
+$response = $pipelines($request);
 ```
 
 上面的代码其实是 Laravel 中间件的核心代码，也是 Laravel 启动流程的核心实现；虽然加入了各种样的闭包后导致函数阅读起来十分痛苦，但它的本质其实很简单；就是像洋葱一样将所有的中间件包起来，然后让请求从最外层一层一层的穿过它，每一层都可以决定是否继续向下执行，而最后的心脏部分是最终要执行的操作。举个简单的例子，我们可以将一段文本通过各种过滤后再保存进数据库，如：
@@ -463,43 +471,46 @@ $response = $pipelines($request);
 ```
 
 ## Laravel Comnication
+
 Laravel 的强大离不开社区的支持，这十年来 Laravel 官方已经发布了 [20 多种周边生态](https://laravel.com/)，这里摘抄一个来自[@白宦成](https://twitter.com/xiqingongzi)关于 Laravel 和其他[框架的对比图](https://wiki.bestony.com/#%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94)。
 
-| **项目** | **Laravel** | **Rails** | **Django** |
-|---|---|---|---|
-| ORM | 有 | 有 | 有 |
-| 数据库迁移 | 有 | 有 | 有 |
-| 发送邮件 | ~[Mailables](https://laravel.com/docs/10.x/mail)~ | ~[ActionMailer](https://guides.rubyonrails.org/action_mailer_basics.html)~ | ~[SendMail](https://docs.djangoproject.com/zh-hans/4.2/topics/email/)~ |
-| 接收邮件 | 无 | ~[Action Mailbox](https://guides.rubyonrails.org/action_mailbox_basics.html)~ | 无 |
-| 管理框架 | ~[Nova](https://nova.laravel.com/)~ | 无 | ~[Django Admin](https://docs.djangoproject.com/zh-hans/4.2/ref/django-admin/)~ |
-| 单页管理 | ~[Folio](https://laravel.com/docs/10.x/folio)~ | 无 | ~[flatpages](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/flatpages/)~ |
-| 系统检查框架 | ~[Pluse](https://github.com/laravel/pulse)~ | 无 | ~[checks](https://docs.djangoproject.com/zh-hans/4.2/topics/checks/%7C)~ |
-| Sitemap | 无 | 无 | ~[Sitemap](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/sitemaps/)~ |
-| RSS & Atom | 无 | 无 | ~[Feed](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/syndication/)~ |
-| 多站点框架 | 无 | 无 | ~[Sites](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/sites/)~ |
-| 前端处理 | ~[Asset Bundling](https://laravel.com/docs/10.x/vite)~ | ~[Asset Pipeline](https://guides.rubyonrails.org/asset_pipeline.html)~ | 无 |
-| WebSocket | ~[Broadcasting](https://laravel.com/docs/5.8/broadcasting#introduction)~ | ~[Action Cable](https://guides.rubyonrails.org/action_cable_overview.html)~ | ~[Django Channels](https://channels.readthedocs.io/en/latest/)~ |
-| 队列 | ~[Queues](https://laravel.com/docs/5.8/queues)~ | ~[Active Job](https://guides.rubyonrails.org/active_job_basics.html)~ | 无 |
-| 文本编辑器 | 无 | ~[Action Text](https://guides.rubyonrails.org/action_text_overview.html)~ | 无 |
-| GIS | 无 | 无 | ~[DjangoGIS](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/gis/)~ |
-| 信号调度框架 | 无 | 无 | ~[Signals](https://docs.djangoproject.com/zh-hans/4.2/topics/signals/)~ |
-| 支付框架 | ~[Cashier](https://laravel.com/docs/master/cashier-paddle)~ | 无 | 无 |
-| 浏览器测试 | ~[Dusk](https://laravel.com/docs/master/dusk)~ | 无 | ~[System Testing](https://guides.rubyonrails.org/testing.html#system-testing)~ |
-| 自动化部署工具 | ~[Envoy](https://laravel.com/docs/master/envoy)~ | 无 | 无 |
-| Redis 调度 | ~[Horizon](https://laravel.com/docs/master/horizon)~ | 无 | 无 |
-| 完整用户系统 | ~[Jetstream](https://jetstream.laravel.com/introduction.html)~ | 无 | 无 |
-| Feature Flag | ~[Pennant](https://laravel.com/docs/master/pennant)~ | 无 | 无 |
-| Code Style Fixer | ~[Pint](https://laravel.com/docs/master/pint)~ | 无 | 无 |
-| 搜索框架 | ~[Scout](https://laravel.com/docs/master/scout)~ | 无 | 无 |
-| OAuth | ~[Socialite](https://laravel.com/docs/master/socialite)~ | 无 | 无 |
-| 系统分析 | ~[Telescope](https://laravel.com/docs/master/telescope)~ | 无 | 无 |
+| **项目**         | **Laravel**                                                              | **Rails**                                                                     | **Django**                                                                       |
+| ---------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| ORM              | 有                                                                       | 有                                                                            | 有                                                                               |
+| 数据库迁移       | 有                                                                       | 有                                                                            | 有                                                                               |
+| 发送邮件         | ~[Mailables](https://laravel.com/docs/10.x/mail)~                        | ~[ActionMailer](https://guides.rubyonrails.org/action_mailer_basics.html)~    | ~[SendMail](https://docs.djangoproject.com/zh-hans/4.2/topics/email/)~           |
+| 接收邮件         | 无                                                                       | ~[Action Mailbox](https://guides.rubyonrails.org/action_mailbox_basics.html)~ | 无                                                                               |
+| 管理框架         | ~[Nova](https://nova.laravel.com/)~                                      | 无                                                                            | ~[Django Admin](https://docs.djangoproject.com/zh-hans/4.2/ref/django-admin/)~   |
+| 单页管理         | ~[Folio](https://laravel.com/docs/10.x/folio)~                           | 无                                                                            | ~[flatpages](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/flatpages/)~ |
+| 系统检查框架     | ~[Pluse](https://github.com/laravel/pulse)~                              | 无                                                                            | ~[checks](https://docs.djangoproject.com/zh-hans/4.2/topics/checks/%7C)~         |
+| Sitemap          | 无                                                                       | 无                                                                            | ~[Sitemap](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/sitemaps/)~    |
+| RSS & Atom       | 无                                                                       | 无                                                                            | ~[Feed](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/syndication/)~    |
+| 多站点框架       | 无                                                                       | 无                                                                            | ~[Sites](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/sites/)~         |
+| 前端处理         | ~[Asset Bundling](https://laravel.com/docs/10.x/vite)~                   | ~[Asset Pipeline](https://guides.rubyonrails.org/asset_pipeline.html)~        | 无                                                                               |
+| WebSocket        | ~[Broadcasting](https://laravel.com/docs/5.8/broadcasting#introduction)~ | ~[Action Cable](https://guides.rubyonrails.org/action_cable_overview.html)~   | ~[Django Channels](https://channels.readthedocs.io/en/latest/)~                  |
+| 队列             | ~[Queues](https://laravel.com/docs/5.8/queues)~                          | ~[Active Job](https://guides.rubyonrails.org/active_job_basics.html)~         | 无                                                                               |
+| 文本编辑器       | 无                                                                       | ~[Action Text](https://guides.rubyonrails.org/action_text_overview.html)~     | 无                                                                               |
+| GIS              | 无                                                                       | 无                                                                            | ~[DjangoGIS](https://docs.djangoproject.com/zh-hans/4.2/ref/contrib/gis/)~       |
+| 信号调度框架     | 无                                                                       | 无                                                                            | ~[Signals](https://docs.djangoproject.com/zh-hans/4.2/topics/signals/)~          |
+| 支付框架         | ~[Cashier](https://laravel.com/docs/master/cashier-paddle)~              | 无                                                                            | 无                                                                               |
+| 浏览器测试       | ~[Dusk](https://laravel.com/docs/master/dusk)~                           | 无                                                                            | ~[System Testing](https://guides.rubyonrails.org/testing.html#system-testing)~   |
+| 自动化部署工具   | ~[Envoy](https://laravel.com/docs/master/envoy)~                         | 无                                                                            | 无                                                                               |
+| Redis 调度       | ~[Horizon](https://laravel.com/docs/master/horizon)~                     | 无                                                                            | 无                                                                               |
+| 完整用户系统     | ~[Jetstream](https://jetstream.laravel.com/introduction.html)~           | 无                                                                            | 无                                                                               |
+| Feature Flag     | ~[Pennant](https://laravel.com/docs/master/pennant)~                     | 无                                                                            | 无                                                                               |
+| Code Style Fixer | ~[Pint](https://laravel.com/docs/master/pint)~                           | 无                                                                            | 无                                                                               |
+| 搜索框架         | ~[Scout](https://laravel.com/docs/master/scout)~                         | 无                                                                            | 无                                                                               |
+| OAuth            | ~[Socialite](https://laravel.com/docs/master/socialite)~                 | 无                                                                            | 无                                                                               |
+| 系统分析         | ~[Telescope](https://laravel.com/docs/master/telescope)~                 | 无                                                                            | 无                                                                               |
 
 除了官方，社区本身已有非常多的第三方扩展；有快速生成 Admin 管理后台的各种 Generater、有操作 Excel 的 [SpartnerNL/Laravel-Excel](https://github.com/SpartnerNL/Laravel-Excel)、有高效操作图片的 [Intervention/image](https://github.com//Intervention//image)、还有最近要被纳入默认测试框架的 [Pest](https://github.com/pestphp/pest) 以及在屎一样的 API 之上构建出来的最好用的微信 SDK [EasyWechat](https://github.com/w7corp/easywechat)。你几乎能在 PHP 生态中找到任何你想找的轮子。
 
 > 说到这儿，不得不说 PHP 生态中了一个强大的存在 [Symfony](https://symfony.com/)。Symfony 完全是另一个可以和 Laravel 媲美的框架，甚至在很多设计上比 Laravel 还要超前；并且 Laravel 的核心组件如路由/Request/Container 都是构建在 Symfony 之上的。但 Symfony 的推广没有 Laravel 那么好运，Symfony 发布到现在已经 12 年了，仍然处于不温不火的地位(国内看的话)，我想大概是没有一个像 Taylor Otwell 一样即会写代码还会营销的 KOL 吧。
 
 正是因为这些强大的社区支持帮助 Laravel 变得更加强大，也正是因为这些繁荣的生态保护着 PHP 一步一步走到现在。有些开发者可能觉得 PHP 已经走向衰亡了，并且十分鄙视 PHP 着门语言。我其实很不明白作为一名工程师为什么我们会瞧不上某一门语言？每一门语言都有着自己天然的优势，PHP 作为一门脚本语言在 WEB 开发这块儿有着极快的开发速度，加上上手难度低，工资不高，对于初创型企业来何尝不为一个好的选择呢。我不会因为写 Python 就觉得 PHP 屁都不如，也不因为写 Rust 就觉得 Go 狗都不如；在我看来，语言只是实现产品的一种方式，不同的语言在不同的领域有自己的优势，我们应该学习不止一门语言，并尽量了解每一门语言的优缺点，在完成开发时选择自己以及团队合适的，而不是只会写 Java 就觉得其他语言啥都不是。
+
 ## 不足
+
 Laravel 为人垢弊的问题就是太慢了，一个普通的应用一个 RTT 可能也要 100～200 ms；当遇到稍微大一点的并发请求时，CPU 的负载就奔着 90% 去了。为了解决 Laravel 速度太慢这一问题，Laravel 团队在 2021 年的时候推出了 [Laravel/Octane](https://github.com/laravel/octane)，如果你对 Laravel Octane 感兴趣，也可以看看我之前写的文章 — [Laravel Octane 初体验](https://godruoyi.com/posts/laravel-octane)。加持了 Laravel Octane 的应用，我们可以把请求响应做到 20ms 以内。
 
 不过我觉得 Laravel 的不足不在性能，毕竟 PHP 作为脚本语言，就算我们把它优化到极致，也不可能达到类似 Go 那么高的吞吐率，如果真的是为了性能，那为什么不选择其他更适合的语言呢？
@@ -508,16 +519,17 @@ Laravel 为人垢弊的问题就是太慢了，一个普通的应用一个 RTT �
 
 > 这里还有个例子是 Laravel 在之前推出了 [Laravel Bootcamp](https://bootcamp.laravel.com/livewire/creating-chirps) 用来教新人怎么快速上手 Laravel，但这之前只推出了两个版本，即 Livewire 和 Inertia，好在是[被社区大佬及时反应](https://x.com/PovilasKorop/status/1570810285320978436?s=20)后才在再后来加上了最原始的 Blade 支持。
 
-Laravel 官方还推出了 [Laravel Sail](https://laravel.com/docs/10.x/sail)、[Laravel Herd](https://herd.laravel.com/) 还有更早之前推出现在被弃用的 [Laravel Homestead](https://github.com/laravel/homestead) 等本地开发环境工具；而部署工具 Laravel 推出了 [Laravel Forge](https://forge.laravel.com/)、[Laravel Vapor](https://vapor.laravel.com/) 还有 [Laravel Envoyer](https://envoyer.io/)；如果你作为一个 Laravel 新人你知道用什么搭建本地开发环境吗？又用什么部署你的 Laravel 应用吗？说实话我用了 Laravel 这么久我也不知道。我更建议大家的是如果你对 Laravel 感兴趣，不要一来就接触 Laravel 这些复杂的概念，老老实实的在本地安装好 PHP/Nginx/PostgreSQL 或者 Docker；而如果你要还要用它写前端页面，老老实实的用原生框架如 Vue/React/Bootstrap 甚至 Blade  才是更好的选择。
+Laravel 官方还推出了 [Laravel Sail](https://laravel.com/docs/10.x/sail)、[Laravel Herd](https://herd.laravel.com/) 还有更早之前推出现在被弃用的 [Laravel Homestead](https://github.com/laravel/homestead) 等本地开发环境工具；而部署工具 Laravel 推出了 [Laravel Forge](https://forge.laravel.com/)、[Laravel Vapor](https://vapor.laravel.com/) 还有 [Laravel Envoyer](https://envoyer.io/)；如果你作为一个 Laravel 新人你知道用什么搭建本地开发环境吗？又用什么部署你的 Laravel 应用吗？说实话我用了 Laravel 这么久我也不知道。我更建议大家的是如果你对 Laravel 感兴趣，不要一来就接触 Laravel 这些复杂的概念，老老实实的在本地安装好 PHP/Nginx/PostgreSQL 或者 Docker；而如果你要还要用它写前端页面，老老实实的用原生框架如 Vue/React/Bootstrap 甚至 Blade 才是更好的选择。
 
 Laravel 还有很优秀的设计我没有在这篇文章中指出来，如果你对 Laravel 感兴趣或者想写出一手还不错的代码，我真的建议你看一看 Laravel 的源码，看一看他的设计，我觉得这些设计在所有的语言中都是通用的，enjoy。
 
 ## 参考
-- [The Laravel Framework | GitHub](https://github.com/laravel)
-- https://bootcamp.laravel.com/introduction
-- [Laravel 管道流原理 | Godruoyi Laravel China 社区](https://learnku.com/articles/5206/the-use-of-php-built-in-function-array-reduce-in-laravel)
-- [Laravel 中间件原理 | Godruoyi  Laravel China 社区](https://learnku.com/articles/5180/laravel-middleware-principle)
-- [NativePHP 的技术原理和实现细节 | Godruoyi](https://godruoyi.com/posts/nativephp)
-- [为什么一个现代化的框架应该具备 Migration 功能 - 白宦成](https://www.ixiqin.com/2019/02/06/why-should-a-modern-framework-have-migration-function/)
-- [Laravel Octane 初体验 | Godruoyi](https://godruoyi.com/posts/laravel-octane)
-- [Laravel Pipelines | Martin Joo](https://martinjoo.dev/laravel-pipelines)
+
+-   [The Laravel Framework | GitHub](https://github.com/laravel)
+-   https://bootcamp.laravel.com/introduction
+-   [Laravel 管道流原理 | Godruoyi Laravel China 社区](https://learnku.com/articles/5206/the-use-of-php-built-in-function-array-reduce-in-laravel)
+-   [Laravel 中间件原理 | Godruoyi Laravel China 社区](https://learnku.com/articles/5180/laravel-middleware-principle)
+-   [NativePHP 的技术原理和实现细节 | Godruoyi](https://godruoyi.com/posts/nativephp)
+-   [为什么一个现代化的框架应该具备 Migration 功能 - 白宦成](https://www.ixiqin.com/2019/02/06/why-should-a-modern-framework-have-migration-function/)
+-   [Laravel Octane 初体验 | Godruoyi](https://godruoyi.com/posts/laravel-octane)
+-   [Laravel Pipelines | Martin Joo](https://martinjoo.dev/laravel-pipelines)

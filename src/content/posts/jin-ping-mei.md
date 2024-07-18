@@ -1,12 +1,12 @@
 ---
-title: "金瓶梅"
-description: "今儿用微信听书听金瓶梅，听到有一段特别有意思，心想用程序来描述出来肯定也不错。"
-pubDate: "2021-02-19 08:23:15"
-category: "life"
-banner: "@images/banners/oPUzmrZg7MUMtP2L7Jk54USu03WZaIav8L6Fm0n6.jpeg"
-tags: ["life"]
+title: '金瓶梅'
+description: '今儿用微信听书听金瓶梅，听到有一段特别有意思，心想用程序来描述出来肯定也不错。'
+pubDate: '2021-02-19 08:23:15'
+category: 'life'
+banner: '@images/banners/oPUzmrZg7MUMtP2L7Jk54USu03WZaIav8L6Fm0n6.jpeg'
+tags: ['life']
 oldViewCount: 2144
-oldKeywords: ["金瓶梅,go,godruoyi,金瓶梅的go实现"]
+oldKeywords: ['金瓶梅,go,godruoyi,金瓶梅的go实现']
 ---
 
 今儿用微信听书听金瓶梅，听到有一段特别有意思，心想用程序来描述出来肯定也不错。
@@ -14,7 +14,7 @@ oldKeywords: ["金瓶梅,go,godruoyi,金瓶梅的go实现"]
 下面是背景描述：
 
 > 王婆给西门庆定的挨光十记，满足这十条，就能妥妥的挨光了。
-> 
+>
 > 武大郎为人软弱，每天早出晚归，只知道做买卖，所以潘金莲一般不出门；
 > 老身（王干娘，以下为第一人称）没事，有机会过去就和她闲坐聊天，她有事儿呢，也请我帮忙。
 > 大官人（西门庆）如干此事，便买来一匹蓝绸、一匹白绸、一匹白绢，十两好绵交给我，我去让她帮我挑个日子我请裁缝来做衣服。
@@ -93,7 +93,7 @@ func main() {
     }
 
     println("此事十分光了") //
-		
+
     println("🈲，未满18岁请在大人陪同下观看")
     println("🈲，未满18岁请在大人陪同下观看")
     println("🈲，未满18岁请在大人陪同下观看")

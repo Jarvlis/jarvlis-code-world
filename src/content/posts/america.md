@@ -1,11 +1,11 @@
 ---
-title: "美国"
-description: "昨天晚上开了一个小时的会，受益良多；以下只是我的感悟，请不要信以为真。"
-pubDate: "2024-07-05 16:16:00"
-category: "life"
-banner: "@images/posts/america/banner.png"
-banner2: "@images/posts/america/banner2.png"
-tags: ["生活", "感悟"]
+title: '美国'
+description: '昨天晚上开了一个小时的会，受益良多；以下只是我的感悟，请不要信以为真。'
+pubDate: '2024-07-05 16:16:00'
+category: 'life'
+banner: '@images/posts/america/banner.png'
+banner2: '@images/posts/america/banner2.png'
+tags: ['生活', '感悟']
 ---
 
 昨天晚上开了一个小时的会，受益良多；以下只是我的感悟，**请不要**信以为真。
@@ -29,8 +29,3 @@ J 是我们的老板，当我在闲聊中问到美区公司有没有招中国人
 这里我又想起了[几年前](https://godruoyi.com/posts/the-revolution-in-silicon-valley/)写下的一段话：1981 年的乔布斯，开着保时捷，Macintosh 团队年薪较低的工程师 22000 美元。
 
 而想想你在国内公司上班搞个开源还被辞退、拿着月薪 5000 的工资却还想做为人类的伟大胜利而奋斗终身、好不容易实现的 idea 却被别人无情的抄袭。在这样的土地上，又怎么能长出参天大树呢。
-
-
-
-
-

@@ -1,12 +1,12 @@
 ---
-title: "Blog 3 周年"
-description: "2021-04-04 号，Blog 就满了 3 周年了。作者已经忘记了 Blog 具体上线时间了，只记得 Timeline 里，最早的文章发布于 2018-04-04。"
-pubDate: "2021-04-02 05:12:22"
-category: "life"
-banner: "@images/banners/UmPvxfPRpqXiBU7Bf6fukza2Fagp5drXNbjR3rMe.jpeg"
-tags: ["life"]
+title: 'Blog 3 周年'
+description: '2021-04-04 号，Blog 就满了 3 周年了。作者已经忘记了 Blog 具体上线时间了，只记得 Timeline 里，最早的文章发布于 2018-04-04。'
+pubDate: '2021-04-02 05:12:22'
+category: 'life'
+banner: '@images/banners/UmPvxfPRpqXiBU7Bf6fukza2Fagp5drXNbjR3rMe.jpeg'
+tags: ['life']
 oldViewCount: 2255
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 2021-04-04 号，博客就满了 3 周年了。作者已经忘记了博客具体上线时间了，只记得 [Timeline](https://godruoyi.com/timeline) 里，最早的文章发布于 2018-04-04。
@@ -19,6 +19,7 @@ oldKeywords: ["null"]
 截图于 2021-03-26
 
 ## Google Analytics
+
 Google Analytics 显示去年一年的 uv 才不到 1000 人（博客上线很长一段时间后才开始支持 Google Analytics，所以前面 10 个月都没有数据记录）。
 
 ![google uv](https://images.godruoyi.com/posts/202104/02/u7zuHCVT31DKbvmlotZYeL3r1L4I1laRNG1bCMwo.png)

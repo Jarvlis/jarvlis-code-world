@@ -1,16 +1,15 @@
 ---
-title: "相比如今公众号等大热的文字创作平台，你如何看待 Blog"
-description: "摘抄一段 Hsiaoming Yang 关于 Blog 的看法，在丝经济大行其道的今天，你是不是拥有自己的信息来源呢？"
-pubDate: "2020-05-23 03:51:06"
-category: "life"
-banner: "@images/banners/_1590205863_YuDkTretY5.jpg"
-tags: ["life"]
+title: '相比如今公众号等大热的文字创作平台，你如何看待 Blog'
+description: '摘抄一段 Hsiaoming Yang 关于 Blog 的看法，在丝经济大行其道的今天，你是不是拥有自己的信息来源呢？'
+pubDate: '2020-05-23 03:51:06'
+category: 'life'
+banner: '@images/banners/_1590205863_YuDkTretY5.jpg'
+tags: ['life']
 oldViewCount: 2607
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 在丝经济大行其道的今天，你是不是拥有自己的信息来源呢？原文摘抄自利器对 Typlog 作者的专访，推荐你前往这里查看完整的 [访谈记录](https://liqi.io/lepture/) （可能需翻墙）。
-> 
 
 我喜欢个人博客，尤其是在这粉丝经济大行其道之时。我喜欢看作者们的生活思考或者技能分享，感受一个个活生生的人。看个人的真实想法，而非替粉丝的说话。现在大家越来越不怎么更新了，越发显得珍贵起来。
 
@@ -26,6 +25,6 @@ oldKeywords: ["null"]
 
 上面的链接可能需要代理，你也可以点击下面的备用链接。
 
-* [https://mp.weixin.qq.com/s/Fca2ZL79aH45rP50HBktJw](https://mp.weixin.qq.com/s/Fca2ZL79aH45rP50HBktJw)
-* [原文 https://liqi.io/lepture/](https://liqi.io/lepture/)
-* [https://www.lvbby.com/p/md/1812310124343741311003](https://www.lvbby.com/p/md/1812310124343741311003)
+-   [https://mp.weixin.qq.com/s/Fca2ZL79aH45rP50HBktJw](https://mp.weixin.qq.com/s/Fca2ZL79aH45rP50HBktJw)
+-   [原文 https://liqi.io/lepture/](https://liqi.io/lepture/)
+-   [https://www.lvbby.com/p/md/1812310124343741311003](https://www.lvbby.com/p/md/1812310124343741311003)

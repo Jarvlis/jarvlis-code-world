@@ -1,26 +1,30 @@
 ---
-title: "为什么我们需要数据库事务"
-description: "事务一直是简化这些问题的首选机制。他为上层应用程序提供一个可靠性保障：将多个读写操作组合成一个逻辑单元来执行，要么全部成功，要么全部失败。应用程序在处理这些问题时将不再关心一半成功一半失败的情况，也不再拘泥于下层各种不可靠的系统。"
-pubDate: "2021-08-03 07:41:41"
-category: "mysql"
-banner: "@images/banners/jFCjp0lKCELdUeIJYNFqfp5BgU1BaVZYbdwmVLJh.jpeg"
-tags: ["mysql"]
+title: '为什么我们需要数据库事务'
+description: '事务一直是简化这些问题的首选机制。他为上层应用程序提供一个可靠性保障：将多个读写操作组合成一个逻辑单元来执行，要么全部成功，要么全部失败。应用程序在处理这些问题时将不再关心一半成功一半失败的情况，也不再拘泥于下层各种不可靠的系统。'
+pubDate: '2021-08-03 07:41:41'
+category: 'mysql'
+banner: '@images/banners/jFCjp0lKCELdUeIJYNFqfp5BgU1BaVZYbdwmVLJh.jpeg'
+tags: ['mysql']
 oldViewCount: 3519
-oldKeywords: ["事务,ACID,Atomicity,Consistency,Isolation,Read Committed,Snapshot,隔离级别"]
+oldKeywords:
+    [
+        '事务,ACID,Atomicity,Consistency,Isolation,Read Committed,Snapshot,隔离级别',
+    ]
 ---
 
 日常工作中我们可能会遇到如下的问题，在未引入数据库事务这一特性前，应用程序在处理这些问题时总显得过于复杂，如：
 
-* 数据库在写入一半数据时崩溃
-* 订单数据保存一半后网络链接中断
-* 多个客户端可能会同时写入数据库
-* 多个客户端之间的条件竞争可能会扰乱整个应用程序
+-   数据库在写入一半数据时崩溃
+-   订单数据保存一半后网络链接中断
+-   多个客户端可能会同时写入数据库
+-   多个客户端之间的条件竞争可能会扰乱整个应用程序
 
 而事务一直是简化这些问题的首选机制。他为上层应用程序提供一个可靠性保障：将多个读写操作组合成一个逻辑单元来执行，要么全部成功，要么全部失败。应用程序在处理这些问题时将不再关心一半成功一半失败的情况，也不再拘泥于下层各种不可靠的系统，因为大多数数据库系统都会从多个维度（事务的ACID）来保证数据的正确性。
 
 > 计算机发展到今天，我们一直在不可靠的环境中构建可靠的系统。
 
 ## 事务的 ACID
+
 ACID 并不是什么高大上的术语；而是数据库系统在实现事务时为保证其正确可靠而必须满足的几个约束，不同的约束提供了不同的保障。
 
 ### Atomicity（原子性）
@@ -51,6 +55,7 @@ ACID 并不是什么高大上的术语；而是数据库系统在实现事务时
 这只是一个美好性承诺，我们小心翼翼地祈祷不会出现如硬盘被偷、文件损坏等故障导致的数据丢失。虽然这有点杞人忧天，不过也说明了并不存在绝对 100% 的保证。
 
 ## 事务的隔离级别
+
 为了简化应用程序在面对并发时的各种问题，大部分关系型数据库都提供了不同的隔离级别。隔离级别并不是一个什么高深的概率，只是数据库系统在简化并发问题时的抽象。不同的隔离级别对应不同的保障，保障系数越高，相应的性能就越低。在选择不同的隔离级别前，我们应该思考该隔离级别提供了什么样的保障？相同的代码在不同的隔离级别下可能会存在什么问题？不同的隔离级别可能会带来什么问题？而不是一味为了应付面试而了解的诸如脏读、幻读、不可重复读、MVCC 等抽象的概念。
 
 ## Read Committed
@@ -124,13 +129,13 @@ Read Committed 认为这种问题是可以被接受的，也没打算解决这�
 
 更新丢失准确来说不算是数据库的问题，也不应该要求数据库做出这方面的保障，毕竟数据库在保存数据时，并不知道数据本身的合法性。通常，更新丢失有以下几种解决办法：
 
-* 原子写
+-   原子写
 
 ```
 update t set count = count + 1 where id = 1
 ```
 
-* 排它锁（FOR UPDATE）
+-   排它锁（FOR UPDATE）
 
 通过在 SQL 语句后面指定 FOR UPDATE 来锁定查询条件返回的记录数，在事务未提交期间，其他**查询&写入**必须等待。
 
@@ -144,16 +149,15 @@ update t set count = count where id = 1
 commmit
 ```
 
-
 ## Serializable
 
 最后一种隔离级别是可序列化，可序列化隔离通常被认为是最强的隔离级别。他将多个并发执行的事务串行化，一个事务必须等待之前的任务处理完成后才能接着处理。这种隔离级别可以防止所有可能的竞争条件。
 
-* Serializable 的实现
+-   Serializable 的实现
 
 Serializable 通常采用两阶段锁（two-phase locking，2PL）的方式来实现。他允许多事务并发读取，既读与读之间互不干涉。但如果要对某一对象进行写入时，需要等待该对象上的所有**读&写**事务完成后，才能写入；如果要对写入的对象进行读取时，需要等待写入事务提交或终止后，才能读取。
 
-* Serializable 带来的问题
+-   Serializable 带来的问题
 
 由于两阶段锁在遇到写操作时，都会对资源进行加锁，并且写操作还会柱塞读操作。所以 Serializable 带来的性能十分低下。并且还可能会发生死锁和写放大等现象，毕竟在生产环境中，当其中一个服务读写变慢时，他就有可能会拖坏整个应用的吞吐率，并逐渐扩大至整个程序不可用。这也是 Serializable 即使提供了更好的隔离级别却很少使用的原因。
 
@@ -164,11 +168,12 @@ Serializable 通常采用两阶段锁（two-phase locking，2PL）的方式来�
 虽然文章标题叫做「[为什么我们需要数据库事务](https://godruoyi.com/posts/why-do-we-need-database-transactions)」，但其实作者大部分篇幅都在写隔离级别，因为我发现再解释完为什么后，还需要接着解释 Why，那姑且就这样吧。如果你觉得文章对你有帮助，你也可以订阅作者的博客 [RSS](https://blog.godruoyi.com/feeds) 或直接访问作者博客 [二愣的闲谈杂鱼](https://godruoyi.com/)。
 
 ## 参考
-* [Designing Data-Intensive Applications - 豆瓣](https://book.douban.com/subject/30329536/)
-* [数据库事务 - 维基百科](https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1)
-* [ACID C was put in just for laughs - Twitter](https://twitter.com/joe_hellerstein/status/588376556545777664)
-* [Why doesn’t NoSQL support an ACID property?](https://www.quora.com/Why-doesnt-NoSQL-support-an-ACID-property)
-* [事务隔离：为什么你改了我还看不见？- 极客时间](https://time.geekbang.org/column/article/68963)
-* [技术分享：Distributed Lock Manager （陈皓）](https://t.co/aFu2Vn42FI?amp=1)
-* [Redis作者「不懂」分布式锁？](https://mp.weixin.qq.com/s/EGGe14IpEsho75ntjeR3OA)
-* [原文链接 - 为什么我们需要数据库事务？](https://godruoyi.com/posts/why-do-we-need-database-transactions)
+
+-   [Designing Data-Intensive Applications - 豆瓣](https://book.douban.com/subject/30329536/)
+-   [数据库事务 - 维基百科](https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1)
+-   [ACID C was put in just for laughs - Twitter](https://twitter.com/joe_hellerstein/status/588376556545777664)
+-   [Why doesn’t NoSQL support an ACID property?](https://www.quora.com/Why-doesnt-NoSQL-support-an-ACID-property)
+-   [事务隔离：为什么你改了我还看不见？- 极客时间](https://time.geekbang.org/column/article/68963)
+-   [技术分享：Distributed Lock Manager （陈皓）](https://t.co/aFu2Vn42FI?amp=1)
+-   [Redis作者「不懂」分布式锁？](https://mp.weixin.qq.com/s/EGGe14IpEsho75ntjeR3OA)
+-   [原文链接 - 为什么我们需要数据库事务？](https://godruoyi.com/posts/why-do-we-need-database-transactions)

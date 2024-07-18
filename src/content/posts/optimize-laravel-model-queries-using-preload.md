@@ -1,12 +1,12 @@
 ---
-title: "使用预加载优化 Laravel Model 查询"
-description: "原文译自[eloquent-eager-loading](https://laravel-news.com/eloquent-eager-loading)，简化其前面~~构造数据~~部分。  ## 介绍  对象关系映射（`ORM`）使数据库的工作变得非常简单。 在以面向对象的方式定义数据库..."
-pubDate: "2018-04-04 07:34:04"
-category: "laravel"
-banner: "@images/banners/_1553621467_sOfIjjZjU2.png"
-tags: ["laravel"]
+title: '使用预加载优化 Laravel Model 查询'
+description: '原文译自[eloquent-eager-loading](https://laravel-news.com/eloquent-eager-loading)，简化其前面~~构造数据~~部分。  ## 介绍  对象关系映射（`ORM`）使数据库的工作变得非常简单。 在以面向对象的方式定义数据库...'
+pubDate: '2018-04-04 07:34:04'
+category: 'laravel'
+banner: '@images/banners/_1553621467_sOfIjjZjU2.png'
+tags: ['laravel']
 oldViewCount: 2088
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 原文译自[eloquent-eager-loading](https://laravel-news.com/eloquent-eager-loading)，简化其前面~~构造数据~~部分。
@@ -33,7 +33,6 @@ $authors = array_map(function($post) {
 我们在查询时没有告诉`Post`模型，我们还需要所有的作者，所以每次从单个`Post`模型实例获取作者的名字时，都会发生单独的查询。
 
 > array_maps时发生100次查询，加上先前一次查询，累计产生101次查询。
-
 
 ## 预加载
 
@@ -101,9 +100,9 @@ $posts->map(function ($post) {
 你可以打开你的`sql`日志看到对应的三条查询。
 
 ```sql
-select * from `posts`  
-select * from `authors` where `authors`.`id` in (?, ?, ?, ?, ?) [.....] 
-select * from `profiles` where `profiles`.`author_id` in (?, ?, ?, ?, ?) [.....] 
+select * from `posts`
+select * from `authors` where `authors`.`id` in (?, ?, ?, ?, ?) [.....]
+select * from `profiles` where `profiles`.`author_id` in (?, ?, ?, ?, ?) [.....]
 ```
 
 ## 懒惰加载
@@ -119,8 +118,9 @@ $posts->map(function ($post) {
     return $post->author->profile;
 });
 ```
+
 查看您的sql日志，总共看到三个查询，但只有调用`$posts->load()`时才会显示。
 
 ## 结论
 
- 希望您更加了解有关加载型号的更多信息，并了解其在更深层次上的工作原理。 Laravel相关的文档已经很全面了，希望额外的实践练习可以帮助您更有信心优化关系查询。
+希望您更加了解有关加载型号的更多信息，并了解其在更深层次上的工作原理。 Laravel相关的文档已经很全面了，希望额外的实践练习可以帮助您更有信心优化关系查询。

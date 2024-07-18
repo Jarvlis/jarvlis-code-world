@@ -1,12 +1,12 @@
 ---
-title: "2021 年终总结"
-description: "不过这只是属于我自己的看法罢了，每个位置都能发挥他的价值，有些鸟是关不住的。"
-pubDate: "2022-01-28 10:31:19"
-category: "life"
-banner: "@images/banners/MAycsXVXJpbFzBfdP92MJ5s9vD1LipBHIiPxw1Qm.jpeg"
-tags: ["life"]
+title: '2021 年终总结'
+description: '不过这只是属于我自己的看法罢了，每个位置都能发挥他的价值，有些鸟是关不住的。'
+pubDate: '2022-01-28 10:31:19'
+category: 'life'
+banner: '@images/banners/MAycsXVXJpbFzBfdP92MJ5s9vD1LipBHIiPxw1Qm.jpeg'
+tags: ['life']
 oldViewCount: 3570
-oldKeywords: ["年终总结,2021,godruoyi,remote"]
+oldKeywords: ['年终总结,2021,godruoyi,remote']
 ---
 
 > 劝君更尽一杯酒，西出阳关有故人。
@@ -32,23 +32,26 @@ oldKeywords: ["年终总结,2021,godruoyi,remote"]
 年底的时候我终于找到了我曾梦想的工作，Full Time Remote Work，做到了如推特网友说的那样，在国内拿美刀，希望新的一年我能做出一些有意思的事情。
 
 ## TODO
+
 参考我在推特上已经发表的 [Keywords that describe 2022 for me](d) 为来年细化一个目标吧。
 
-- [ ] Golang
-- [ ] Rust ([The Rust Programming Language](https://doc.rust-lang.org/book/#the-rust-programming-language) & [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) & Write a Bitcask)
-- [ ] Kubernetes
-- [ ] Blog (At least one article per month)
-- [ ] Books
-- [ ] Life
-- [ ] A Child
-- [ ] English
-- [ ] Write A Blog With Laravel Best Practices
+-   [ ] Golang
+-   [ ] Rust ([The Rust Programming Language](https://doc.rust-lang.org/book/#the-rust-programming-language) & [Rust By Example](https://doc.rust-lang.org/stable/rust-by-example/) & Write a Bitcask)
+-   [ ] Kubernetes
+-   [ ] Blog (At least one article per month)
+-   [ ] Books
+-   [ ] Life
+-   [ ] A Child
+-   [ ] English
+-   [ ] Write A Blog With Laravel Best Practices
 
 ## 往年总结
-* [2020 年终总结](https://godruoyi.com/posts/2020-year-end-review)
-* [2019 年度总结](https://godruoyi.com/posts/continue-refueling-in-2019)
+
+-   [2020 年终总结](https://godruoyi.com/posts/2020-year-end-review)
+-   [2019 年度总结](https://godruoyi.com/posts/continue-refueling-in-2019)
 
 ## 他们的 2021
-* 潘鸟的 2021 https://sppan24.cn/archives/2021
-* [A recap of 2021 - Freek Van der Herten’s blog on PHP, Laravel and JavaScript](https://freek.dev/2155-a-recap-of-2021)
-* [Review 2021 Awesome Lists](https://github.com/saveweb/review-2021)
+
+-   潘鸟的 2021 https://sppan24.cn/archives/2021
+-   [A recap of 2021 - Freek Van der Herten’s blog on PHP, Laravel and JavaScript](https://freek.dev/2155-a-recap-of-2021)
+-   [Review 2021 Awesome Lists](https://github.com/saveweb/review-2021)

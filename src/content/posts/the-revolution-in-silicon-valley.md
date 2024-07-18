@@ -1,12 +1,12 @@
 ---
-title: "硅谷革命"
-description: "Macintosh 则不同，它背后的驱动力主要还是来自艺术价值，它无视外部竞争，目的是要开发出一款非凡卓越的产品"
-pubDate: "2020-03-07 11:19:10"
-category: "books"
-banner: "@images/banners/_1583579912_ujZ48wWtGg.jpeg"
-tags: ["books"]
+title: '硅谷革命'
+description: 'Macintosh 则不同，它背后的驱动力主要还是来自艺术价值，它无视外部竞争，目的是要开发出一款非凡卓越的产品'
+pubDate: '2020-03-07 11:19:10'
+category: 'books'
+banner: '@images/banners/_1583579912_ujZ48wWtGg.jpeg'
+tags: ['books']
 oldViewCount: 2187
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 终于看完了两年前就买下的这本书。很难想象，当初的这群狂热分子，竟然是这样做出世上最伟大的产品的。

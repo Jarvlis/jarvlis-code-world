@@ -1,16 +1,15 @@
 ---
-title: "提高安全性的最佳 Nginx 配置"
-description: "由于安全问题一直是重中之重，这里整理下 `nginx` 的安全配置。文章大部分参考了 Best nginx configuration for improved security(and performance)"
-pubDate: "2018-04-08 10:16:19"
-category: "nginx"
-banner: "@images/banners/_1553621487_p9sQHrWtHr.jpg"
-tags: ["nginx"]
+title: '提高安全性的最佳 Nginx 配置'
+description: '由于安全问题一直是重中之重，这里整理下 `nginx` 的安全配置。文章大部分参考了 Best nginx configuration for improved security(and performance)'
+pubDate: '2018-04-08 10:16:19'
+category: 'nginx'
+banner: '@images/banners/_1553621487_p9sQHrWtHr.jpg'
+tags: ['nginx']
 oldViewCount: 4454
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 由于安全问题一直是重中之重，这里整理下 `nginx` 的安全配置。文章大部分参考了 [Best nginx configuration for improved security(and performance).](https://gist.github.com/plentz/6737338) 及 [Jerry Qu](http://imququ.com)，更多关于 `HTTP` 安全及性能可前往 [Jerry Qu](http://imququ.com) 查看。
-
 
 ### server_tokens
 
@@ -30,9 +29,9 @@ add_header X-Frame-Options SAMEORIGIN;
 
 该指令用三个可用的配置
 
- - X-Frame-Options: DENY
- - X-Frame-Options: SAMEORIGIN
- - X-Frame-Options: ALLOW-FROM https://example.com/
+-   X-Frame-Options: DENY
+-   X-Frame-Options: SAMEORIGIN
+-   X-Frame-Options: ALLOW-FROM https://example.com/
 
 当设置为 `DENY` 时，站点禁止任何页面被嵌入。
 
@@ -49,6 +48,7 @@ add_header X-Frame-Options SAMEORIGIN;
 ```shell
 add_header X-Content-Type-Options nosniff;
 ```
+
 > 用来指定浏览器对未指定或错误指定 `Content-Type` 资源真正类型的猜测行为，`nosniff` 表示不允许任何猜测。（Jerry Qu）
 
 这个响应头的值只能是 `nosniff`，可用于 `IE8+` 和 `Chrome`。
@@ -61,18 +61,17 @@ add_header X-XSS-Protection "1; mode=block";
 
 该响应头是用于防范及过滤 `XSS` 的。可用的几个指令如下：
 
- - X-XSS-Protection: 0
- - X-XSS-Protection: 1
- - X-XSS-Protection: 1; mode=block
- - X-XSS-Protection: 1; report=<reporting-uri>
+-   X-XSS-Protection: 0
+-   X-XSS-Protection: 1
+-   X-XSS-Protection: 1; mode=block
+-   X-XSS-Protection: 1; report=<reporting-uri>
 
 说明
 
- - `0`，禁用 `XSS` 过滤
- - `1`，开启 `XSS` 过滤
- - `1; mode=block`，开启 `XSS` 过滤，并且若检查到 `XSS` 攻击，停止渲染页面。
- - `X-XSS-Protection: 1; report=<reporting-uri>`，开启 `XSS` 过滤，并且若检查到 `XSS` 攻击，将使用指导的 url 来发送报告。
-
+-   `0`，禁用 `XSS` 过滤
+-   `1`，开启 `XSS` 过滤
+-   `1; mode=block`，开启 `XSS` 过滤，并且若检查到 `XSS` 攻击，停止渲染页面。
+-   `X-XSS-Protection: 1; report=<reporting-uri>`，开启 `XSS` 过滤，并且若检查到 `XSS` 攻击，将使用指导的 url 来发送报告。
 
 ### Content-Security-Policy
 
@@ -85,7 +84,6 @@ add_header Content-Security-Policy: default-src 'self';
 ```
 
 更多 `Content-Security-Policy` 的指令及规则及介绍可参考 [Jerry Qu](https://imququ.com) 的 [Content Security Policy 介绍](https://imququ.com/post/content-security-policy-reference.html)。
-
 
 ### Strict-Transport-Security
 
@@ -105,6 +103,6 @@ add_header strict-transport-security: max-age=16070400; includeSubDomains;
 
 > 可以看到 `HSTS` 可以很好的解决 `HTTPS` 降级攻击，但是对于 `HSTS` 生效前的首次 `HTTP` 请求，依然无法避免被劫持。浏览器厂商们为了解决这个问题，提出了 `HSTS Preload List` 方案：内置一份可以定期更新的列表，对于列表中的域名，即使用户之前没有访问过，也会使用 `HTTPS` 协议。 （Jerry Qu）
 
-如果你想把自己的域名加入这个列表，可通过 [hstspreloa.org](https://hstspreload.org/)  查看是否满足申请条件。更多关于 `HSTS` 的配置，可查看 [关于启用 HTTPS 的一些经验分享](https://imququ.com/post/sth-about-switch-to-https.html)。
+如果你想把自己的域名加入这个列表，可通过 [hstspreloa.org](https://hstspreload.org/) 查看是否满足申请条件。更多关于 `HSTS` 的配置，可查看 [关于启用 HTTPS 的一些经验分享](https://imququ.com/post/sth-about-switch-to-https.html)。
 
 目前 [godruoyi.com](https://godruoyi.com) 已成功加入 `Preload List`。

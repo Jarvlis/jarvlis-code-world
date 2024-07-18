@@ -1,12 +1,12 @@
 ---
-title: "刷抖音"
-description: "从前听人说： 中国人人人具有三种博士的资格：拿筷子博士、吃瓜子博士、刷抖音博士。"
-pubDate: "2021-11-12 03:10:04"
-category: "life"
-banner: "@images/banners/vPpwKAnxQWsETNh3QEsZeXMKkCxlVrFUq7tJU7dB.jpeg"
-tags: ["life"]
+title: '刷抖音'
+description: '从前听人说： 中国人人人具有三种博士的资格：拿筷子博士、吃瓜子博士、刷抖音博士。'
+pubDate: '2021-11-12 03:10:04'
+category: 'life'
+banner: '@images/banners/vPpwKAnxQWsETNh3QEsZeXMKkCxlVrFUq7tJU7dB.jpeg'
+tags: ['life']
 oldViewCount: 4052
-oldKeywords: ["TikTok,吃瓜子,丰子恺,抖音,娱乐至死"]
+oldKeywords: ['TikTok,吃瓜子,丰子恺,抖音,娱乐至死']
 ---
 
 从前听人说： 中国人人人具有三种博士的资格：拿筷子博士、吃瓜子博士、刷抖音博士。
@@ -23,4 +23,4 @@ oldKeywords: ["TikTok,吃瓜子,丰子恺,抖音,娱乐至死"]
 
 **我本来见抖音害怕，写到这里，觉得更加害怕了。**
 
-* [《吃瓜子》](https://baike.baidu.com/item/%E5%90%83%E7%93%9C%E5%AD%90/698877)
+-   [《吃瓜子》](https://baike.baidu.com/item/%E5%90%83%E7%93%9C%E5%AD%90/698877)

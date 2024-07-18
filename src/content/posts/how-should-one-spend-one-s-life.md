@@ -1,12 +1,12 @@
 ---
-title: "人的一生应该怎样度过"
-description: "今天突然发现我还有个 wordpress 站点，进去看才发现不知什么时候写了这样的一篇。这应该是在中移物联网的时候写下的，现把他搬到我的 Blog。"
-pubDate: "2021-06-03 03:22:32"
-category: "life"
-banner: "@images/banners/TIECszb8kMWX3vl5FhWbxpLbR2i9grEcABtYRE7J.png"
-tags: ["life"]
+title: '人的一生应该怎样度过'
+description: '今天突然发现我还有个 wordpress 站点，进去看才发现不知什么时候写了这样的一篇。这应该是在中移物联网的时候写下的，现把他搬到我的 Blog。'
+pubDate: '2021-06-03 03:22:32'
+category: 'life'
+banner: '@images/banners/TIECszb8kMWX3vl5FhWbxpLbR2i9grEcABtYRE7J.png'
+tags: ['life']
 oldViewCount: 3533
-oldKeywords: ["连波,柯察金"]
+oldKeywords: ['连波,柯察金']
 ---
 
 > 今天突然发现我还有个 wordpress 站点，进去看才发现不知什么时候写了这样的一篇。原文发布于 2016-07，这应该是在中移物联网的时候写下的，现把他搬到我的博客。
@@ -22,7 +22,7 @@ oldKeywords: ["连波,柯察金"]
 搬出路遥来安慰安慰我吧，
 
 > 生活就是这样， 不能让人处处满意， 但我们还要热情的生活下去， 人活一生， 值得爱的东西很多， 不要因为一个不满意， 就灰心。
-> 
 
-------
+---
+
 可以看到当时的情绪还是挺激动的；刚毕业那年，我欠下了很多信用卡，大约 1W 左右，后面陆陆续续花了一年才还完。而又看到小时候的玩伴初中未毕业就外出务工，现在「混」得有模有样的，心理难免有点失落。现在看来，我们不能用成败来伦生活，不同的路有不同的生活方式，表面的甜与苦都不足与外人道，并不存在孰强孰弱，过好每一天就好了。

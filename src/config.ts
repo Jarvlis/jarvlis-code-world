@@ -1,13 +1,14 @@
-import { isProd } from './support/envs.ts'
-import type { NavigationLink, Site } from './types.ts'
+import { isProd } from './support/envs.ts';
+import type { NavigationLink, Site } from './types.ts';
 
 export const SITE: Site = {
     author: 'Jarvlis',
     url: 'https://jarvlis.com',
-    title: '森海的代码世界',
-    description: 'Jarvlis\'s personal blog, I enjoy the process of building something using any technology stack',
+    title: 'world in Jarvlis',
+    description:
+        "Jarvlis's personal blog, I enjoy the process of building something using any technology stack",
     shortDescription: '',
-}
+};
 
 export const NavigationLinks: NavigationLink[] = [
     { name: 'Posts', url: '/posts' },
@@ -15,7 +16,7 @@ export const NavigationLinks: NavigationLink[] = [
     { name: 'Timeline', url: '/timeline' },
     { name: 'About', url: '/posts/about-godruoyi' },
     { name: 'Friends', url: '/friends' },
-]
+];
 
 export const FooterLinks = [
     {
@@ -35,7 +36,7 @@ export const FooterLinks = [
             { name: 'Twitter', url: 'https://x.com/godruoyi' },
         ],
     },
-]
+];
 
 export const Settings = {
     GoogleAnalytics: {
@@ -68,7 +69,7 @@ export const Settings = {
             root: 'gblog',
         },
     },
-}
+};
 
 export const SEO = {
     title: SITE.title,
@@ -76,16 +77,16 @@ export const SEO = {
     structuredData: {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        'inLanguage': 'en-US',
+        inLanguage: 'en-US',
         '@id': SITE.url,
-        'url': SITE.url,
-        'name': SITE.title,
-        'description': SITE.description,
-        'isPartOf': {
+        url: SITE.url,
+        name: SITE.title,
+        description: SITE.description,
+        isPartOf: {
             '@type': 'WebSite',
-            'url': SITE.url,
-            'name': SITE.title,
-            'description': SITE.description,
+            url: SITE.url,
+            name: SITE.title,
+            description: SITE.description,
         },
     },
-}
+};

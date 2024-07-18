@@ -1,12 +1,12 @@
 ---
-title: "RESTful API 设计规范"
-description: "RESTful API 设计规范，文章大量参考了目前比较常见的 RESTful API 设计。  为了更好的讨论规范带来的争议及问题，现已把该文档整..."
-pubDate: "2018-06-24 13:41:48"
-category: "laravel"
-banner: "@images/banners/_1553621572_9IdArs7Xpd.jpg"
-tags: ["laravel"]
+title: 'RESTful API 设计规范'
+description: 'RESTful API 设计规范，文章大量参考了目前比较常见的 RESTful API 设计。  为了更好的讨论规范带来的争议及问题，现已把该文档整...'
+pubDate: '2018-06-24 13:41:48'
+category: 'laravel'
+banner: '@images/banners/_1553621572_9IdArs7Xpd.jpg'
+tags: ['laravel']
 oldViewCount: 17232
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 本文是为 [大渝网](http://cq.qq.com) `API` 开发规范拟定的一个 `beta` 版，文章大量参考了目前比较常见的 `RESTful API` 设计。
@@ -17,11 +17,11 @@ oldKeywords: ["null"]
 
 为了避免歧义，文档大量使用了「能愿动词」，对应的解释如下：
 
-* `必须 (MUST)`：绝对，严格遵循，请照做，无条件遵守；
-* `一定不可 (MUST NOT)`：禁令，严令禁止；
-* `应该 (SHOULD)` ：强烈建议这样做，但是不强求；
-* `不该 (SHOULD NOT)`：强烈不建议这样做，但是不强求；
-* `可以 (MAY)` 和 `可选 (OPTIONAL)` ：选择性高一点，在这个文档内，此词语使用较少；
+-   `必须 (MUST)`：绝对，严格遵循，请照做，无条件遵守；
+-   `一定不可 (MUST NOT)`：禁令，严令禁止；
+-   `应该 (SHOULD)` ：强烈建议这样做，但是不强求；
+-   `不该 (SHOULD NOT)`：强烈不建议这样做，但是不强求；
+-   `可以 (MAY)` 和 `可选 (OPTIONAL)` ：选择性高一点，在这个文档内，此词语使用较少；
 
 > 参见：[RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
@@ -33,8 +33,8 @@ oldKeywords: ["null"]
 
 `API` 的根入口点应尽可能保持足够简单，这里有两个常见的 `URL` 根例子：
 
-* api.example.com/*
-* example.com/api/*
+-   api.example.com/\*
+-   example.com/api/\*
 
 > 如果你的应用很庞大或者你预计它将会变的很庞大，那 `应该` 将 `API` 放到子域下（`api.example.com`）。这种做法可以保持某些规模化上的灵活性。
 
@@ -60,9 +60,9 @@ Accept: application/vnd.example.com.v1+json
 
 其中 `vnd` 表示 `Standards Tree` 标准树类型，有三个不同的树: `x`，`prs` 和 `vnd`。你使用的标准树需要取决于你开发的项目
 
-* 未注册的树（`x`）主要表示本地和私有环境
-* 私有树（`prs`）主要表示没有商业发布的项目
-* 供应商树（`vnd`）主要表示公开发布的项目
+-   未注册的树（`x`）主要表示本地和私有环境
+-   私有树（`prs`）主要表示没有商业发布的项目
+-   供应商树（`vnd`）主要表示公开发布的项目
 
 > 后面几个参数依次为应用名称（一般为应用域名）、版本号、期望的返回格式。
 
@@ -72,38 +72,38 @@ Accept: application/vnd.example.com.v1+json
 
 端点就是指向特定资源或资源集合的 `URL`。在端点的设计中，你 `必须` 遵守下列约定：
 
-* URL 的命名 `必须` 全部小写
-* URL 中资源（`resource`）的命名 `必须` 是名词，并且 `必须` 是复数形式
-* `必须` 优先使用 `Restful` 类型的 URL
-* URL `必须` 是易读的
-* URL `一定不可` 暴露服务器架构
+-   URL 的命名 `必须` 全部小写
+-   URL 中资源（`resource`）的命名 `必须` 是名词，并且 `必须` 是复数形式
+-   `必须` 优先使用 `Restful` 类型的 URL
+-   URL `必须` 是易读的
+-   URL `一定不可` 暴露服务器架构
 
 > 至于 URL 是否必须使用连字符（`-`） 或下划线（`_`），不做硬性规定，但 `必须` 根据团队情况统一一种风格。
 
 来看一个反例
 
-* https://api.example.com/getUserInfo?userid=1
-* https://api.example.com/getusers
-* https://api.example.com/sv/u
-* https://api.example.com/cgi-bin/users/get_user.php?userid=1
+-   https://api.example.com/getUserInfo?userid=1
+-   https://api.example.com/getusers
+-   https://api.example.com/sv/u
+-   https://api.example.com/cgi-bin/users/get_user.php?userid=1
 
 再来看一个正列
 
-* https://api.example.com/zoos
-* https://api.example.com/animals
-* https://api.example.com/zoos/{zoo}/animals
-* https://api.example.com/animal_types
-* https://api.example.com/employees
+-   https://api.example.com/zoos
+-   https://api.example.com/animals
+-   https://api.example.com/zoos/{zoo}/animals
+-   https://api.example.com/animal_types
+-   https://api.example.com/employees
 
 ## HTTP 动词
 
 对于资源的具体操作类型，由 `HTTP` 动词表示。常用的 `HTTP` 动词有下面五个（括号里是对应的 `SQL` 命令）。
 
-* GET（SELECT）：从服务器取出资源（一项或多项）。
-* POST（CREATE）：在服务器新建一个资源。
-* PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
-* PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
-* DELETE（DELETE）：从服务器删除资源。
+-   GET（SELECT）：从服务器取出资源（一项或多项）。
+-   POST（CREATE）：在服务器新建一个资源。
+-   PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
+-   PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
+-   DELETE（DELETE）：从服务器删除资源。
 
 其中
 
@@ -114,22 +114,22 @@ Accept: application/vnd.example.com.v1+json
 
 针对每一个端点来说，下面列出所有可行的 `HTTP` 动词和端点的组合
 
-| 请求方法 | URL | 描述 |
-| ---------- | --- | --- |
-| GET | /zoos                              | 列出所有的动物园(ID和名称，不要太详细) |
-| POST | /zoos                              | 新增一个新的动物园 |
-| GET | /zoos/{zoo}                        | 获取指定动物园详情 |
-| PUT | /zoos/{zoo}                        | 更新指定动物园(整个对象) |
-| PATCH | /zoos/{zoo}                        | 更新动物园(部分对象) |
-| DELETE | /zoos/{zoo}                        | 删除指定动物园 |
-| GET | /animal_types                      | 获取所有动物类型(ID和名称，不要太详细) |
-| GET | /animal_types/{type}               | 获取指定的动物类型详情 |
-| GET | /employees                         | 检索整个雇员列表 |
-| GET | /employees/{employee}              | 检索指定特定的员工 |
-| GET | /zoos/{zoo}/employees              | 检索在这个动物园工作的雇员的名单(身份证和姓名) |
-| POST | /employees                         | 新增指定新员工 |
-| POST | /zoos/{zoo}/employees              | 在特定的动物园雇佣一名员工 |
-| DELETE | /zoos/{zoo}/employees/{employee}   | 从某个动物园解雇一名员工 |
+| 请求方法 | URL                              | 描述                                           |
+| -------- | -------------------------------- | ---------------------------------------------- |
+| GET      | /zoos                            | 列出所有的动物园(ID和名称，不要太详细)         |
+| POST     | /zoos                            | 新增一个新的动物园                             |
+| GET      | /zoos/{zoo}                      | 获取指定动物园详情                             |
+| PUT      | /zoos/{zoo}                      | 更新指定动物园(整个对象)                       |
+| PATCH    | /zoos/{zoo}                      | 更新动物园(部分对象)                           |
+| DELETE   | /zoos/{zoo}                      | 删除指定动物园                                 |
+| GET      | /animal_types                    | 获取所有动物类型(ID和名称，不要太详细)         |
+| GET      | /animal_types/{type}             | 获取指定的动物类型详情                         |
+| GET      | /employees                       | 检索整个雇员列表                               |
+| GET      | /employees/{employee}            | 检索指定特定的员工                             |
+| GET      | /zoos/{zoo}/employees            | 检索在这个动物园工作的雇员的名单(身份证和姓名) |
+| POST     | /employees                       | 新增指定新员工                                 |
+| POST     | /zoos/{zoo}/employees            | 在特定的动物园雇佣一名员工                     |
+| DELETE   | /zoos/{zoo}/employees/{employee} | 从某个动物园解雇一名员工                       |
 
 > 超出 `RESTful` 端点的，`应该` 模仿上表的方式来定义端点。
 
@@ -137,11 +137,11 @@ Accept: application/vnd.example.com.v1+json
 
 > 如果记录数量很多，服务器不可能都将它们返回给用户。API `应该` 提供参数，过滤返回结果。下面是一些常见的参数。
 
-* ?limit=10：指定返回记录的数量
-* ?offset=10：指定返回记录的开始位置。
-* ?page=2&per_page=100：指定第几页，以及每页的记录数。
-* ?sortby=name&order=asc：指定返回结果按照哪个属性排序，以及排序顺序。
-* ?animal_type_id=1：指定筛选条件
+-   ?limit=10：指定返回记录的数量
+-   ?offset=10：指定返回记录的开始位置。
+-   ?page=2&per_page=100：指定第几页，以及每页的记录数。
+-   ?sortby=name&order=asc：指定返回结果按照哪个属性排序，以及排序顺序。
+-   ?animal_type_id=1：指定筛选条件
 
 所有 `URL` 参数 `必须` 是全小写，`必须` 使用下划线类型的参数形式。
 
@@ -162,12 +162,12 @@ GET /trades/recently_closed
 
 Oauth 的端点设计示列
 
-* RFC 6749   /token
-* Twitter    /oauth2/token
-* Fackbook   /oauth/access_token
-* Google     /o/oauth2/token
-* Github     /login/oauth/access_token
-* Instagram  /oauth/authorize
+-   RFC 6749 /token
+-   Twitter /oauth2/token
+-   Fackbook /oauth/access_token
+-   Google /o/oauth2/token
+-   Github /login/oauth/access_token
+-   Instagram /oauth/authorize
 
 客户端在获得 `access token` 的同时 `必须` 在响应中包含一个名为 `expires_in` 的数据，它表示当前获得的 `token` 会在多少 `秒` 后失效。
 
@@ -233,13 +233,13 @@ Server: example.com
 
 下表列举了常见的 `HTTP` 状态码
 
-| 状态码 | 描述 |
-| ---------- | --- |
-| 1xx | 代表请求已被接受，需要继续处理 |
-| 2xx | 请求已成功，请求所希望的响应头或数据体将随此响应返回 |
-| 3xx | 重定向 |
-| 4xx | 客户端原因引起的错误 |
-| 5xx | 服务端原因引起的错误 |
+| 状态码 | 描述                                                 |
+| ------ | ---------------------------------------------------- |
+| 1xx    | 代表请求已被接受，需要继续处理                       |
+| 2xx    | 请求已成功，请求所希望的响应头或数据体将随此响应返回 |
+| 3xx    | 重定向                                               |
+| 4xx    | 客户端原因引起的错误                                 |
+| 5xx    | 服务端原因引起的错误                                 |
 
 > 只有来自客户端的请求被正确的处理后才能返回 `2xx` 的响应，所以当 API 返回 `2xx` 类型的状态码时，前端 `必须` 认定该请求已处理成功。
 
@@ -309,9 +309,7 @@ Connection: keep-alive
     "message": "直接展示给终端用户的错误信息",
     "error_code": "业务错误码",
     "error": "供开发者查看的错误信息",
-    "debug": [
-        "错误堆栈，必须开启 debug 才存在"
-    ]
+    "debug": ["错误堆栈，必须开启 debug 才存在"]
 }
 ```
 
@@ -345,7 +343,7 @@ Server: example.com
 {
     "id": 1,
     "username": "godruoyi",
-    "age": 88,
+    "age": 88
 }
 ```
 
@@ -356,12 +354,12 @@ Server: example.com
     {
         "id": 1,
         "username": "godruoyi",
-        "age": 88,
+        "age": 88
     },
     {
         "id": 2,
         "username": "foo",
-        "age": 88,
+        "age": 88
     }
 ]
 ```
@@ -407,9 +405,9 @@ Server: example.com
 
 当服务器创建数据成功时，`应该` 返回此状态码。常见的应用场景是使用 `POST` 提交用户信息，如：
 
-* 添加了新用户
-* 上传了图片
-* 创建了新活动
+-   添加了新用户
+-   上传了图片
+-   创建了新活动
 
 等，都可以返回 `201` 状态码。需要注意的是，你可以选择在用户创建成功后返回新用户的数据
 
@@ -451,11 +449,8 @@ Connection: keep-alive
 > 返回该状态码时，响应实体 `必须` 为空。
 
 ```html
-HTTP/1.1 202 Accepted
-Server: nginx/1.11.9
-Content-Type: text/html; charset=UTF-8
-Transfer-Encoding: chunked
-Date: Sun, 24 Jun 2018 09:25:15 GMT
+HTTP/1.1 202 Accepted Server: nginx/1.11.9 Content-Type: text/html;
+charset=UTF-8 Transfer-Encoding: chunked Date: Sun, 24 Jun 2018 09:25:15 GMT
 Connection: keep-alive
 ```
 
@@ -463,8 +458,8 @@ Connection: keep-alive
 
 该状态码表示响应实体不包含任何数据，其中：
 
-* 在使用 `DELETE` 方法删除资源 **成功** 时，`必须` 返回该状态码
-* 使用 `PUT`、`PATCH` 方法更新数据 **成功** 时，也 `应该` 返回此状态码
+-   在使用 `DELETE` 方法删除资源 **成功** 时，`必须` 返回该状态码
+-   使用 `PUT`、`PATCH` 方法更新数据 **成功** 时，也 `应该` 返回此状态码
 
 ```http
 HTTP/1.1 204 No Content
@@ -521,8 +516,8 @@ Connection: keep-alive
 
 该状态码表示当前请求需要身份认证，以下情况都 `必须` 返回该状态码。
 
-* 未认证用户访问需要认证的 API
-* access_token 无效/过期
+-   未认证用户访问需要认证的 API
+-   access_token 无效/过期
 
 > 客户端在收到 `401` 响应后，都 `应该` 提示用户进行下一步的登录操作。
 
@@ -561,8 +556,8 @@ Connection: keep-alive
 
 该状态码表示用户请求的资源不存在，如
 
-* 获取不存在的用户信息 （get /users/9999999）
-* 访问不存在的端点
+-   获取不存在的用户信息 （get /users/9999999）
+-   访问不存在的端点
 
 都 `必须` 返回该状态码，若该资源已永久不存在，则 `应该` 返回 `401` 响应。
 
@@ -707,8 +702,8 @@ Connection: keep-alive
 
 ## 建议参考
 
-* [restful-api-design-references](https://github.com/aisuhua/restful-api-design-references)
-* [Principles of good RESTful API Design（译）](http://www.cnblogs.com/moonz-wu/p/4211626.html)
-* [理解 RESTful 架构 - ruanyifeng](http://www.ruanyifeng.com/blog/2011/09/restful.html)
-* [RESTful API 设计指南 - ruanyifeng](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
-* [HTTP 状态码- 维基百科](https://zh.wikipedia.org/zh-hans/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)
+-   [restful-api-design-references](https://github.com/aisuhua/restful-api-design-references)
+-   [Principles of good RESTful API Design（译）](http://www.cnblogs.com/moonz-wu/p/4211626.html)
+-   [理解 RESTful 架构 - ruanyifeng](http://www.ruanyifeng.com/blog/2011/09/restful.html)
+-   [RESTful API 设计指南 - ruanyifeng](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+-   [HTTP 状态码- 维基百科](https://zh.wikipedia.org/zh-hans/HTTP%E7%8A%B6%E6%80%81%E7%A0%81)

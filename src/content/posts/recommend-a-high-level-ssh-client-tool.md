@@ -1,20 +1,20 @@
 ---
-title: "推荐一款高颜值的 ssh client 工具"
-description: "当我们需要管理的服务器愈来愈多时，用传统的 ssh user@hostname -p port 来连接服务器肯定是不能满足需求的；通常我们会使用下面的 ssh client 来管理服务器账号信息"
-pubDate: "2018-08-28 02:22:48"
-category: "tool"
-banner: "@images/banners/_1553621594_dPbjOyaEBG.jpg"
-tags: ["tool"]
+title: '推荐一款高颜值的 ssh client 工具'
+description: '当我们需要管理的服务器愈来愈多时，用传统的 ssh user@hostname -p port 来连接服务器肯定是不能满足需求的；通常我们会使用下面的 ssh client 来管理服务器账号信息'
+pubDate: '2018-08-28 02:22:48'
+category: 'tool'
+banner: '@images/banners/_1553621594_dPbjOyaEBG.jpg'
+tags: ['tool']
 oldViewCount: 8436
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 当我们需要管理的服务器愈来愈多时，用传统的 `ssh user@hostname -p port` 来连接服务器肯定是不能满足需求的；通常我们会使用下面的 SSH Client 来管理服务器账号信息：
 
-* Xshell
-* PuTTY
-* SecureCRT
-* ZOC Terminal
+-   Xshell
+-   PuTTY
+-   SecureCRT
+-   ZOC Terminal
 
 > 但是不得不说这几款终端，在不经过一番折腾的情况下，都**丑**。
 
@@ -34,8 +34,8 @@ oldKeywords: ["null"]
 
 ![file](https://images.godruoyi.com/posts/201808/27/1_1535365368_iJTTEAJZmg.gif)
 
------------
+---
 
 > 你还可以在手机端下载使用该应用噢。
 
-enjoy ~_~
+enjoy ~\_~

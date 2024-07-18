@@ -1,12 +1,12 @@
 ---
-title: "Nginx 配置跨越支持"
-description: "用你最美的姿态，去「跨域」那座山"
-pubDate: "2019-05-27 07:24:26"
-category: "nginx"
-banner: "@images/banners/_1566034633_MLDcvVC5wX.jpg"
-tags: ["nginx"]
+title: 'Nginx 配置跨越支持'
+description: '用你最美的姿态，去「跨域」那座山'
+pubDate: '2019-05-27 07:24:26'
+category: 'nginx'
+banner: '@images/banners/_1566034633_MLDcvVC5wX.jpg'
+tags: ['nginx']
 oldViewCount: 4044
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 用你最美的姿态，去「跨域」那座山。
@@ -14,22 +14,24 @@ oldKeywords: ["null"]
 在日常的开放中，我们经常遇到跨域的问题，常用的处理方式都是在代码层添加 cors 支持，但若你有 Nginx 配置权限，在 Nginx 上处理跨域将使得程序异常简单和高效。
 
 ## 代理
+
 假设我们的前端域名为 `example.com`，API 服务架设在 `api.example.com` 域名下，那我们可以通过代理的形式来配置跨越请求，具体的配置为：
 
-* 在  Nginx 的 example.com 虚拟主机文件中配置如下的代理
-* 配置成功重启后，前端即可用 example.com/api 的方式和 API 交互
+-   在 Nginx 的 example.com 虚拟主机文件中配置如下的代理
+-   配置成功重启后，前端即可用 example.com/api 的方式和 API 交互
 
 ```
 # /etc/nginx/sites-enabled/example.com.conf
 
 location /api/ {
-    proxy_pass http://api.example.com/;    
+    proxy_pass http://api.example.com/;
 }
 ```
 
 这种方式的原理是将 API 提供的服务，代理到前端域名的二级目录下，从而避免跨域。
 
 ## Response Header
+
 当然由于很多情况下我们不想将服务代理到前端域名二级目下，那可以通过在 Http Response 中添加 Header 来解决跨越，具体配置如下：
 
 ```nginx
@@ -84,6 +86,6 @@ location / {
 }
 ```
 
-这是因为下面的 `try_files` 将请求 Forward 到了 `location ~ \.php$`  这个 block 下，在此之前添加的 `add_header` 命令是无效的。
+这是因为下面的 `try_files` 将请求 Forward 到了 `location ~ \.php$` 这个 block 下，在此之前添加的 `add_header` 命令是无效的。
 
-enjoy ～_～
+enjoy ～\_～

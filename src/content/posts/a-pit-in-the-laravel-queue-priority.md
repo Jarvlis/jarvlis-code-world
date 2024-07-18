@@ -1,12 +1,12 @@
 ---
-title: "Laravel 队列优先级的一个坑"
-description: "准确来说这不算是坑，但骚不注意就掉进去了，在使用 Laravel 队列时，有时候我们希望为他设定一个优先级，如 bash php artisan queue:work --queue=high,low 这样，当我们的任务需要优先发送时"
-pubDate: "2018-04-04 07:24:36"
-category: "laravel"
-banner: "@images/banners/_1553621445_wdxtb6K4l3.png"
-tags: ["laravel"]
+title: 'Laravel 队列优先级的一个坑'
+description: '准确来说这不算是坑，但骚不注意就掉进去了，在使用 Laravel 队列时，有时候我们希望为他设定一个优先级，如 bash php artisan queue:work --queue=high,low 这样，当我们的任务需要优先发送时'
+pubDate: '2018-04-04 07:24:36'
+category: 'laravel'
+banner: '@images/banners/_1553621445_wdxtb6K4l3.png'
+tags: ['laravel']
 oldViewCount: 2486
-oldKeywords: ["null"]
+oldKeywords: ['null']
 ---
 
 > 准确来说这不算是坑，但骚不注意就掉进去了。
@@ -16,6 +16,7 @@ oldKeywords: ["null"]
 ```bash
 php artisan queue:work --queue=high,low
 ```
+
 这样，当我们的任务需要优先发送时，就可以通过指定队列名 `high` 来优先发送。
 
 ```php
@@ -38,6 +39,7 @@ class YourNotification extends Notification implements ShouldQueue
     use Queueable;
 }
 ```
+
 你发现即使你按照文档说的，`implements ShouldQueue` 并且 `use Queueable`，该通知还是无法加入队列。
 
 那是因为 `config\queuq.php` 配置中，指定了默认的队列名为 `default`，所以所有的队列任务，如果没指定队列名时，默认是 `default`。
@@ -45,5 +47,5 @@ class YourNotification extends Notification implements ShouldQueue
 但是我们在启动队列进程时，只指定了 `high` 和 `low`。当然不会生效。
 
 > 解决办法：
->  1、修改config\queuq.php 默认队列名为 low 或 high
->  2、启动队列进程时添加 default（--queue=high,default,low）
+> 1、修改config\queuq.php 默认队列名为 low 或 high
+> 2、启动队列进程时添加 default（--queue=high,default,low）
