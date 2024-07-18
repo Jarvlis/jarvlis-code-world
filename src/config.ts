@@ -2,10 +2,10 @@ import { isProd } from './support/envs.ts'
 import type { NavigationLink, Site } from './types.ts'
 
 export const SITE: Site = {
-    author: 'Godruoyi',
-    url: 'https://godruoyi.com',
-    title: '连波的闲谈杂鱼',
-    description: 'Godruoyi\'s personal blog, I enjoy the process of building something using any technology stack',
+    author: 'Jarvlis',
+    url: 'https://jarvlis.com',
+    title: '森海的代码世界',
+    description: 'Jarvlis\'s personal blog, I enjoy the process of building something using any technology stack',
     shortDescription: '',
 }
 
