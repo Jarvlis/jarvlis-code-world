@@ -4,9 +4,9 @@ description: '从最开始用 C++ 刷算法题，到后面需要春招找实习�
 pubDate: '2024-06-13'
 category: 'frontend'
 banner: '@images/banners/banner(10).jpeg'
-tags: ['JavaScript'、'算法'、'求职']
+tags: ['JavaScript', '算法', '求职']
 oldViewCount: 530
-oldKeywords: ['JavaScript'、'算法'、'求职']
+oldKeywords: ['JavaScript', '算法', '求职']
 ---
 
 > 从最开始用 C++ 刷算法题，到后面需要春招找实习才切换到 JavaScript，在输入输出和一些处理操作上，有较大的差异，本篇博客用来记录一下这些差异，也帮助自己更好的查询。
