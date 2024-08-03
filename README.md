@@ -1,10 +1,9 @@
-# Gblog is an open-source, simple, and beautiful blog built with Astro.
+# Hi!Welcome to walk in Jarvlis's code world.
 
-![godruoyi gblog](https://images.godruoyi.com/logos/gblog-1.png)
+![image](https://github.com/user-attachments/assets/5719259e-ea30-43a4-bff2-6812d5deb529)
 
-Gblog is a blog template designed for those who are unable or unwilling to write frontend code. All you need to do is find an interesting Tailwind CSS template from elsewhere and paste it into Gblog, and it will function seamlessly. Additionally, you can customize your own blog without to write any JavaScript code.
 
-**[View Live Demo](https://godruoyi.com)**
+Jarvlis's code world is a blog template designed for those who are unable or unwilling to write frontend code. All you need to do is find an interesting Tailwind CSS template from elsewhere and paste it into Gblog, and it will function seamlessly. Additionally, you can customize your own blog without to write any JavaScript code.
 
 ## Features
 
@@ -21,7 +20,7 @@ Gblog is a blog template designed for those who are unable or unwilling to write
 
 You can use this template directly to build your own blog in four different ways.
 
-https://github.com/godruoyi/gblog/assets/16079222/773cd885-d4b7-482d-818f-566606e70b90
+https://github.com/Jarvlis/jarvlis-code-world
 
 ### Deploy to Zeabur
 
@@ -35,7 +34,7 @@ Click the button above to build your blog to Zeabur within one minute.
 
 ### Build from Source
 
-1. Clone the `gblog-template` branch of this repository `git clone -b gblog-template git@github.com:godruoyi/gblog.git`
+1. Clone the `main` branch of this repository.
 2. Execute `pnpm install` to install dependencies.
 3. Modify the `src/config.ts` file to what you want.
 4. Execute `pnpm run dev`: Starts a local development server with hot reloading enabled.
